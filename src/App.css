@@ -1,11 +1,35 @@
 .App {
+  padding: 3rem;
   display: grid;
+  grid-template-columns: 40vw 40vw;
+  grid-template-rows: 10vh 30vh 40vh;
+  column-gap: 0.2rem;
+  row-gap: 0.2rem;
+  grid-template-areas:
+    "header ."
+    "instructions html_editor"
+    "emmet_editor expected_editor";
 }
-.editor {
+.header {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  grid-area: header;
+}
+.editor,
+.instructions {
+  border: 1px solid black;
+  border-radius: 10px;
+  grid-area: instructions;
 }
 .editor__emmet {
+  background-color: aquamarine;
+  grid-area: emmet_editor;
+  position: relative;
 }
 .editor__result-html {
+  grid-area: html_editor;
 }
 .editor__expected-html {
+  grid-area: expected_editor;
 }

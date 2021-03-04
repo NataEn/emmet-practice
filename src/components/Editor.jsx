@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Editor({ title, lines, ...children }) {
+export default function Editor({ title, lines, children }) {
   return (
     <div
       className={`editor editor__${
@@ -8,6 +8,7 @@ export default function Editor({ title, lines, ...children }) {
       }`}
     >
       {title}
+      {children}
     </div>
   );
 }
