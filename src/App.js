@@ -1,14 +1,15 @@
 import "./App.css";
+// import "./theme/codemirror.css";
+// // import "./theme/material.css";
 import Instructions from "./components/Instructions";
 import Editor from "./components/Editor";
 
 import expand from "emmet";
 import { UnControlled as CodeMirror } from "react-codemirror2";
+import codemirror from "codemirror";
 // import CodeMirror from 'react-codemirror2';
 require("codemirror/mode/xml/xml");
 require("codemirror/mode/javascript/javascript");
-require("codemirror/lib/codemirror.css");
-require("codemirror/theme/material.css");
 
 const p = expand("p>a");
 function App() {
@@ -27,7 +28,9 @@ function App() {
             theme: "material",
             lineNumbers: true,
           }}
-          onChange={(editor, data, value) => {}}
+          onChange={(editor, data, value) => {
+            console.log(value);
+          }}
         />
       </Editor>
       <Editor key="resultHTML" title="Result HTML" />
