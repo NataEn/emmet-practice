@@ -26,10 +26,18 @@
   background-color: aquamarine;
   grid-area: emmet_editor;
   position: relative;
+  display: flex;
 }
 .editor__result-html {
   grid-area: html_editor;
 }
 .editor__expected-html {
   grid-area: expected_editor;
+}
+.react-codemirror2 {
+  width: 80%;
+  margin: 2rem;
+}
+.CodeMirror.cm-s-material {
+  border-radius: 0.25em;
 }
