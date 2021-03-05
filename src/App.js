@@ -1,15 +1,10 @@
 import "./App.css";
-// import "./theme/codemirror.css";
-// // import "./theme/material.css";
 import Instructions from "./components/Instructions";
 import Editor from "./components/Editor";
 
 import expand from "emmet";
 import { UnControlled as CodeMirror } from "react-codemirror2";
 import codemirror from "codemirror";
-// import CodeMirror from 'react-codemirror2';
-require("codemirror/mode/xml/xml");
-require("codemirror/mode/javascript/javascript");
 
 const p = expand("p>a");
 function App() {
@@ -25,7 +20,8 @@ function App() {
           value="<h1>I ♥ react-codemirror2</h1>"
           options={{
             mode: "xml",
-            theme: "material",
+            // theme: "material-ocean",
+            theme: "liquibyte",
             lineNumbers: true,
           }}
           onChange={(editor, data, value) => {

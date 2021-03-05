@@ -1,7 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import "./theme/codemirror.css";
+import "codemirror/lib/codemirror.css";
+import "codemirror/theme/material-ocean.css";
+import "codemirror/theme/liquibyte.css";
+import "codemirror/mode/xml/xml";
+import "codemirror/mode/javascript/javascript";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
