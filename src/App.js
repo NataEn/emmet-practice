@@ -28,6 +28,7 @@ function App() {
             console.log(value);
           }}
         />
+        <button className="btn-next correct animation">Next</button>
       </Editor>
       <Editor key="resultHTML" title="Result HTML" />
       <Editor key="expectedHTML" title="Expected HTML" />

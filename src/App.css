@@ -1,3 +1,9 @@
+:root {
+  --radius: 0.25em;
+  --btn-padding: 0.25em;
+  --success: #69da6b;
+  --incomplete: #d11606;
+}
 .App {
   padding: 3rem;
   display: grid;
@@ -19,7 +25,7 @@
 .editor,
 .instructions {
   border: 1px solid black;
-  border-radius: 10px;
+  border-radius: var(--radius);
   grid-area: instructions;
 }
 .editor__emmet {
@@ -27,6 +33,8 @@
   grid-area: emmet_editor;
   position: relative;
   display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .editor__result-html {
   grid-area: html_editor;
@@ -36,8 +44,67 @@
 }
 .react-codemirror2 {
   width: 80%;
-  margin: 2rem;
+  margin: 1rem;
 }
-.CodeMirror.cm-s-material {
-  border-radius: 0.25em;
+.CodeMirror {
+  border-radius: var(--radius);
+  height: 13em;
+}
+.btn-next {
+  position: relative;
+  top: -17%;
+  left: -14%;
+  width: 5em;
+  align-self: flex-end;
+  padding: var(--btn-padding);
+  color: #fff;
+  /* opacity: 0.5; */
+  font-size: 100%;
+  font-family: inherit;
+  border: 0;
+}
+
+.btn-next.disabled {
+  background-color: var(--incomplete);
+}
+.btn-next.correct {
+  background-color: var(--success);
+  animation: beat 0.7s infinite alternate;
+}
+
+/* animations */
+.editor__emmet .btn-next:hover {
+  animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+@keyframes shake {
+  10%,
+  90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+
+  20%,
+  80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%,
+  50%,
+  70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%,
+  60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
+
+@keyframes beat {
+  to {
+    transform: scale(1.2);
+  }
 }
