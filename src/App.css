@@ -1,8 +1,13 @@
 :root {
-  --radius: 0.25em;
-  --btn-padding: 0.25em;
+  --radius: 0.25rem;
+  --btn-padding: 0.25rem;
+  --mainColor: #ab9c9c;
+  --secondaryColor: #818181;
   --success: #69da6b;
   --incomplete: #d11606;
+  --editorFontSize: 1.8rem;
+  --editorHeight: 33.5vh;
+  box-sizing: border-box;
 }
 .App {
   padding: 3rem;
@@ -15,7 +20,9 @@
     "header ."
     "instructions html_editor"
     "emmet_editor expected_editor";
+  background-color: var(--mainColor);
 }
+
 .header {
   display: flex;
   justify-content: space-evenly;
@@ -27,14 +34,25 @@
   border: 1px solid black;
   border-radius: var(--radius);
   grid-area: instructions;
+  overflow: hidden;
+}
+.editor_title {
+  background-color: #262729;
+  color: white;
+  align-self: flex-start;
+  padding: var(--btn-padding);
+  width: 100%;
+  margin: 0;
+  border-radius: var(--radius) var(--radius) 0 0;
 }
 .editor__emmet {
   background-color: aquamarine;
   grid-area: emmet_editor;
+  width: 100%;
   position: relative;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: stretch;
 }
 .editor__result-html {
   grid-area: html_editor;
@@ -42,21 +60,28 @@
 .editor__expected-html {
   grid-area: expected_editor;
 }
+
 .react-codemirror2 {
-  width: 80%;
-  margin: 1rem;
+  width: 100%;
+  font-size: var(--editorFontSize);
 }
 .CodeMirror {
-  border-radius: var(--radius);
-  height: 13em;
+  /* border-radius: var(--radius); */
+  /* height: var(--editorHeight); */
+}
+div.CodeMirror-scroll > div.CodeMirror-gutters {
+  background-color: var(--secondaryColor);
+}
+.CodeMirror-code > div > div > div {
+  color: white;
 }
 .btn-next {
-  position: relative;
-  top: -17%;
-  left: -14%;
-  width: 5em;
+  position: absolute;
+  right: 2vw;
+  bottom: 2vw;
+  width: fit-content;
   align-self: flex-end;
-  padding: var(--btn-padding);
+  padding: var(--btn-padding) calc(var(--btn-padding) * 2);
   color: #fff;
   /* opacity: 0.5; */
   font-size: 100%;
