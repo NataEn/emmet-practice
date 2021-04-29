@@ -5,7 +5,7 @@
   --secondaryColor: #818181;
   --success: #69da6b;
   --incomplete: #d11606;
-  --editorFontSize: 1.8rem;
+  --editorFontSize: 16px;
   --editorHeight: 33.5vh;
   box-sizing: border-box;
 }

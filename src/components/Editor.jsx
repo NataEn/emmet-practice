@@ -1,6 +1,7 @@
 import React from "react";
 
 export default function Editor({ title, lines, children }) {
+  //console.log(children);
   return (
     <div
       className={`editor editor__${

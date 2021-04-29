@@ -3,11 +3,25 @@ import Instructions from "./components/Instructions";
 import Editor from "./components/Editor";
 
 import expand from "emmet";
-import { UnControlled as CodeMirror } from "react-codemirror2";
-import codemirror from "codemirror";
+import { Controlled as CodeMirror } from "react-codemirror2";
+import { useState, useEffect } from "react";
+
+const codeMirrorOptions = {
+  mode: "xml",
+  // theme: "material-ocean",
+  theme: "liquibyte",
+  lineNumbers: true,
+};
 
 const p = expand("p>a");
 function App() {
+  const [currentEmmet, setCurrentEmmet] = useState("p.myClass");
+  const [interpretedHTML, setInterpretedHTML] = useState("");
+
+  useEffect(() => {
+    setInterpretedHTML(() => expand(currentEmmet));
+  }, [currentEmmet]);
+
   return (
     <div className="App">
       <header className="header">
@@ -17,12 +31,10 @@ function App() {
       <Instructions />
       <Editor key="emmetEditor" title="Emmet">
         <CodeMirror
-          value="<h1>I ♥ react-codemirror2</h1>"
-          options={{
-            mode: "xml",
-            // theme: "material-ocean",
-            theme: "liquibyte",
-            lineNumbers: true,
+          value={currentEmmet}
+          options={codeMirrorOptions}
+          onBeforeChange={(editor, data, value) => {
+            setCurrentEmmet(value);
           }}
           onChange={(editor, data, value) => {
             console.log(value);
@@ -30,7 +42,18 @@ function App() {
         />
         <button className="btn-next correct animation">Next</button>
       </Editor>
-      <Editor key="resultHTML" title="Result HTML" />
+      <Editor key="resultHTML" title="Result HTML">
+        <CodeMirror
+          value={interpretedHTML}
+          options={codeMirrorOptions}
+          onBeforeChange={(editor, data, value) => {
+            setInterpretedHTML(value);
+          }}
+          onChange={(editor, data, value) => {
+            console.log("interprited HTMl", value);
+          }}
+        />
+      </Editor>
       <Editor key="expectedHTML" title="Expected HTML" />
       <p>my emmet p tag: {p}</p>
     </div>
