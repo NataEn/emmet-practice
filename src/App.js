@@ -1,19 +1,16 @@
 import "./App.css";
 import Instructions from "./components/Instructions";
 import Editor from "./components/Editor";
-
 import expand from "emmet";
 import { Controlled as CodeMirror } from "react-codemirror2";
 import { useState, useEffect } from "react";
 
 const codeMirrorOptions = {
   mode: "xml",
-  // theme: "material-ocean",
   theme: "liquibyte",
   lineNumbers: true,
 };
 
-const p = expand("p>a");
 function App() {
   const [currentEmmet, setCurrentEmmet] = useState("p.myClass");
   const [interpretedHTML, setInterpretedHTML] = useState("");
@@ -55,7 +52,6 @@ function App() {
         />
       </Editor>
       <Editor key="expectedHTML" title="Expected HTML" />
-      <p>my emmet p tag: {p}</p>
     </div>
   );
 }
