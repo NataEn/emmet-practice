@@ -1,26 +1,31 @@
 :root {
   --radius: 0.25rem;
+  --mainPadding: 3rem;
   --btn-padding: 0.5rem;
   --mainColor: #ab9c9c;
+  --mainColoDark: #948080;
   --secondaryColor: #818181;
   --success: #69da6b;
   --incomplete: #d11606;
   --editorFontSize: 16px;
   --editorHeight: 33.5vh;
+  --gridGap: 1.5rem;
+
   box-sizing: border-box;
 }
 .App {
-  padding: 3rem;
+  padding: var(--mainPadding);
   display: grid;
   grid-template-columns: 40vw 40vw;
   grid-template-rows: 10vh 30vh 40vh;
-  column-gap: 0.2rem;
-  row-gap: 0.2rem;
+  column-gap: var(--gridGap);
+  row-gap: var(--gridGap);
   grid-template-areas:
     "header ."
     "instructions html_editor"
     "emmet_editor expected_editor";
-  background-color: var(--mainColor);
+
+  background: linear-gradient(to right, var(--mainColor) 50%, #a3ab9c 50%);
 }
 
 .header {
@@ -31,7 +36,7 @@
 }
 .editor,
 .instructions {
-  border: 1px solid black;
+  /* border: 1px solid black; */
   border-radius: var(--radius);
   grid-area: instructions;
   overflow: hidden;

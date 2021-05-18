@@ -7,11 +7,16 @@ import "codemirror/theme/liquibyte.css";
 import "codemirror/mode/xml/xml";
 import "codemirror/mode/javascript/javascript";
 import App from "./App";
+import { ThemeProvider } from "styled-components";
+import Theme from "./theme/theme";
+
 import reportWebVitals from "./reportWebVitals";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <ThemeProvider theme={Theme}>
+      <App />
+    </ThemeProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );

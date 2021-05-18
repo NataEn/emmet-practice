@@ -1,0 +1,19 @@
+.header_exercises {
+  background-color: var(--mainColoDark);
+  border-radius: var(--radius);
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 30px;
+}
+
+.header_exercises__nav-title {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 0 var(--gridGap) 0 var(--gridGap);
+}
+.header_exercises__nav-title:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+}

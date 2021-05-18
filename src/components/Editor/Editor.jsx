@@ -8,7 +8,7 @@ export default function Editor({ title, lines, children }) {
         title && title.toLowerCase().split(" ").join("-")
       }`}
     >
-      <h2 className="editor_title">{title}:</h2>
+      <h2 className="editor_title">{title}</h2>
       {children}
     </div>
   );
