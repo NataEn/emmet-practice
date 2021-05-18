@@ -1,6 +1,7 @@
 import "./App.css";
+import "../node_modules/animate.css";
 import Instructions from "./components/Instructions";
-import Editor from "./components/Editor";
+import Editor from "./components/Editor/Editor";
 import expand from "emmet";
 import { Controlled as CodeMirror } from "react-codemirror2";
 import { useState, useEffect } from "react";

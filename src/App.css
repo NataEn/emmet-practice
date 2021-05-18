@@ -1,6 +1,6 @@
 :root {
   --radius: 0.25rem;
-  --btn-padding: 0.25rem;
+  --btn-padding: 0.5rem;
   --mainColor: #ab9c9c;
   --secondaryColor: #818181;
   --success: #69da6b;
@@ -46,7 +46,6 @@
   border-radius: var(--radius) var(--radius) 0 0;
 }
 .editor__emmet {
-  background-color: aquamarine;
   grid-area: emmet_editor;
   width: 100%;
   position: relative;
@@ -84,9 +83,10 @@ div.CodeMirror-scroll > div.CodeMirror-gutters {
   padding: var(--btn-padding) calc(var(--btn-padding) * 2);
   color: #fff;
   /* opacity: 0.5; */
-  font-size: 100%;
+  font-size: 150%;
   font-family: inherit;
   border: 0;
+  border-radius: var(--radius);
 }
 
 .btn-next.disabled {
@@ -94,17 +94,18 @@ div.CodeMirror-scroll > div.CodeMirror-gutters {
 }
 .btn-next.correct {
   background-color: var(--success);
-  animation: beat 0.7s infinite alternate;
+  /* animation: beat 0.7s infinite alternate; */
+  animation: pulse 2s infinite; /* referring directly to the animation's @keyframe declaration */
 }
 
-/* animations */
-.editor__emmet .btn-next:hover {
+.editor__emmet .btn-next.disabled:hover {
   animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
   transform: translate3d(0, 0, 0);
   backface-visibility: hidden;
   perspective: 1000px;
 }
 
+/* animations */
 @keyframes shake {
   10%,
   90% {
