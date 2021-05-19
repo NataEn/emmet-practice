@@ -1,4 +1,20 @@
 const Theme = {
+  fonts: {
+    family: [
+      "-apple-system",
+      "BlinkMacSystemFont",
+      "Segoe UI",
+      "Roboto",
+      "Oxygen",
+      "Ubuntu",
+      "Cantarell",
+      "Fira Sans",
+      "Droid Sans",
+      "Helvetica Neue",
+      "sans-serif",
+    ],
+  },
+
   border: {
     radius: "0.25rem",
   },

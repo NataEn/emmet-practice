@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
+import "../node_modules/normalize.css";
 import "codemirror/lib/codemirror.css";
 import "codemirror/theme/material-ocean.css";
 import "codemirror/theme/liquibyte.css";
