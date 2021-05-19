@@ -48,25 +48,6 @@ body {
   background: linear-gradient(to right, var(--mainColor) 50%, #a3ab9c 50%);
 }
 
-.header {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  grid-area: header;
-}
-
-.header_h1 {
-  font-size: 2rem;
-  font-weight: 800;
-  font-family: "Fredoka One", cursive;
-}
-.instructions {
-  border: 1px solid black;
-  border-radius: var(--radius);
-  grid-area: instructions;
-  overflow: hidden;
-  text-align: left;
-}
 .editor_title {
   background-color: #262729;
   color: white;
