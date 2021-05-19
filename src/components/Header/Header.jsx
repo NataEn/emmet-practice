@@ -15,11 +15,11 @@ const StyledH1 = styled.h1`
   font-family: "Fredoka One", cursive;
 `;
 
-export default function Header() {
+export default function Header({ setLevel, currentLevel }) {
   return (
     <StyledHeader>
       <StyledH1>Emmet practice</StyledH1>
-      <Nav />
+      <Nav setLevel={setLevel} currentLevel={currentLevel} />
     </StyledHeader>
   );
 }

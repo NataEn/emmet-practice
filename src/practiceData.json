@@ -1,0 +1,14 @@
+[
+  {
+    "instructions": "you can do this and that......",
+    "expectedHTML": "<p class=\"myClass\"></p>"
+  },
+  {
+    "instructions": "you can do xxxx and 6666......",
+    "expectedHTML": "<p class=\"myOtherClass\"></p>"
+  },
+  {
+    "instructions": "you can do xxwwwx and 65556......",
+    "expectedHTML": "<p class=\"myThirdClass\"></p>"
+  }
+]

@@ -3,7 +3,8 @@ import "./ExercisesNav.css";
 import Arrow from "../Arrow/Arrow";
 import NavDropdown from "../NavDropdown/NavDropdown.jsx";
 
-export default function ExercisesNav({ currentLevel }) {
+export default function ExercisesNav({ currentLevel, setLevel }) {
+  console.log("current level", currentLevel);
   const [showTooltip, setShowTooltip] = useState(false);
   return (
     <div className="header_exercises">
@@ -13,10 +14,10 @@ export default function ExercisesNav({ currentLevel }) {
         onClick={() => setShowTooltip(!showTooltip)}
       >
         Level
-        {currentLevel || 1} of 24 <Arrow size={"3px"} direction={"down"} />
+        {currentLevel + 1} of 24 <Arrow size={"3px"} direction={"down"} />
       </div>
       <Arrow size={"7px"} direction={"right"} position={"right"} hover={true} />
-      <NavDropdown show={showTooltip} />
+      <NavDropdown show={showTooltip} currentLevel={currentLevel} />
     </div>
   );
 }

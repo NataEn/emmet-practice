@@ -8,13 +8,10 @@ const StyledInstructions = styled.div`
   text-align: left;
 `;
 
-export default function Instructions(instructions) {
+export default function Instructions({ text }) {
   return (
     <StyledInstructions>
-      <p>
-        here are the instructions for the exercise
-        {!!instructions}
-      </p>
+      <p>{text}</p>
     </StyledInstructions>
   );
 }
