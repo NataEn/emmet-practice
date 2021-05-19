@@ -3,7 +3,7 @@
   --radius: 0.25rem;
   --mainPadding: 3rem;
   --btn-padding: 0.5rem;
-  --mainColor: #ab9c9c;
+  --mainColor: #38a6ad;
   --mainColoDark: #948080;
   --secondaryColor: #818181;
   --success: #69da6b;
@@ -11,7 +11,7 @@
   --editorFontSize: 16px;
   --editorHeight: 33.5vh;
   --gridGap: 1.5rem;
-
+  color: #d2eef0;
   margin: 0;
   padding: 0;
 }

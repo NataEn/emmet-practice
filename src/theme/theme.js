@@ -13,6 +13,9 @@ const Theme = {
       "Helvetica Neue",
       "sans-serif",
     ],
+    size: {
+      small: "14px",
+    },
   },
 
   border: {
@@ -26,15 +29,19 @@ const Theme = {
   margin: {
     large: "3rem",
     medium: "1.5rem",
-    small: "0.5rem",
+    small: "0.25rem",
   },
   grid: {
     gap: "1.5rem",
   },
   colors: {
-    primary: "#ab9c9c",
-    primaryDark: "#948080",
-    secondary: "#818181",
+    primary: "#38a6ad",
+    primaryLight: "#d2eef0",
+    primaryDark: "#1f5b5f",
+    secondaryLight: "#eac1be",
+    secondary: "#ad3f38",
+    secondaryDark: "#7c2d28",
+    secondaryDarker: "#662521",
     success: "#69da6b",
     danger: "#d11606",
   },

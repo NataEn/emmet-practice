@@ -27,6 +27,11 @@ export const StyledArrowWrapper = styled.div`
         cursor: pointer;
       }
     `}
+    ${({ background }) =>
+    background &&
+    css`
+      background-color: ${background};
+    `}
 `;
 
 export const StyledArrow = styled.div`
@@ -34,31 +39,31 @@ export const StyledArrow = styled.div`
   height: 0;
   padding: 0;
 
-  ${({ direction, size }) => {
+  ${({ direction, size, color }) => {
     switch (direction) {
       case "left":
         return css`
           border-top: ${size} solid transparent;
           border-bottom: ${size} solid transparent;
-          border-right: ${size} solid white;
+          border-right: ${size} solid ${color || "white"};
         `;
       case "right":
         return css`
           border-top: ${size} solid transparent;
           border-bottom: ${size} solid transparent;
-          border-left: ${size} solid white;
+          border-left: ${size} solid ${color || "white"};
         `;
       case "up":
         return css`
           border-left: ${size} solid transparent;
           border-right: ${size} solid transparent;
-          border-bottom: ${size} solid white;
+          border-bottom: ${size} solid ${color || "white"};
         `;
       case "down":
         return css`
           border-left: ${size} solid transparent;
           border-right: ${size} solid transparent;
-          border-top: ${size} solid white;
+          border-top: ${size} solid ${color || "white"};
         `;
     }
   }}

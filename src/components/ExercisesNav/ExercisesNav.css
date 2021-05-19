@@ -1,4 +1,5 @@
 .header_exercises {
+  position: relative;
   background-color: var(--mainColoDark);
   border-radius: var(--radius);
   display: flex;
