@@ -34,13 +34,15 @@ body {
   font-size: var(--fontRegular);
   display: grid;
   grid-template-columns: 40vw 40vw;
-  grid-template-rows: 10vh 30vh 40vh;
+  grid-template-rows: 0.5fr 2fr 4fr 0.2fr 0.2fr;
   column-gap: var(--gridGap);
   row-gap: var(--gridGap);
   grid-template-areas:
-    "header ."
+    "header html_editor"
     "instructions html_editor"
-    "emmet_editor expected_editor";
+    "emmet_editor expected_editor"
+    "credit expected_editor"
+    ". .";
   justify-content: center;
   align-content: center;
   background: linear-gradient(to right, var(--mainColor) 50%, #a3ab9c 50%);
@@ -58,12 +60,12 @@ body {
   font-weight: 800;
   font-family: "Fredoka One", cursive;
 }
-.editor,
 .instructions {
-  /* border: 1px solid black; */
+  border: 1px solid black;
   border-radius: var(--radius);
   grid-area: instructions;
   overflow: hidden;
+  text-align: left;
 }
 .editor_title {
   background-color: #262729;
@@ -87,6 +89,9 @@ body {
 }
 .editor__expected-html {
   grid-area: expected_editor;
+}
+.credit {
+  grid-area: credit;
 }
 
 .react-codemirror2 {

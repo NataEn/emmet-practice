@@ -1,4 +1,9 @@
 .editor_title {
   font-family: "Fredoka One", cursive;
+}
+.editor {
+  border: 1px solid black;
+  border-radius: var(--radius);
+  overflow: hidden;
   text-align: left;
 }

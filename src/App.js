@@ -56,6 +56,7 @@ function App() {
         />
       </Editor>
       <Editor key="expectedHTML" title="Expected HTML" />
+      <p className="credit">some credits...</p>
     </div>
   );
 }
