@@ -4,7 +4,7 @@ export const StyledTooltipWrapper = styled.div`
   border-radius: ${(props) => props.theme.border.radius};
   position: absolute;
   z-index: 1;
-  display: flex;
+  display: ${({ show }) => (show ? "flex" : "none")};
   align-items: center;
   justify-content: center;
   flex-direction: column;

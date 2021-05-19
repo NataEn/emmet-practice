@@ -4,14 +4,13 @@ import {
   StyledLevels,
   StyledLevel,
 } from "./StyledNavDropdown";
-import Arrow from "../Arrow/Arrow";
 
-const NavDropdown = () => {
+const NavDropdown = ({ show }) => {
   const levels = 24;
   const levelsArr = new Array(levels).fill("");
   const selectedIndex = 3;
   return (
-    <StyledTooltipWrapper>
+    <StyledTooltipWrapper show={show}>
       <StyledLevels>
         {levelsArr.map((level, index) => (
           <StyledLevel className={selectedIndex === index ? "selected" : ""}>
