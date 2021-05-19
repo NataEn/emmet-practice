@@ -1,4 +1,5 @@
 :root {
+  --fontRegular: 14px;
   --radius: 0.25rem;
   --mainPadding: 3rem;
   --btn-padding: 0.5rem;
@@ -11,19 +12,26 @@
   --editorHeight: 33.5vh;
   --gridGap: 1.5rem;
 
-  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
-.App {
+body {
   width: 100vw;
   height: 100vh;
-  margin: 0 auto;
+  overflow: hidden;
+}
+.App {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  padding: var(--btn-padding);
   text-align: center;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  padding: var(--mainPadding);
+  font-size: var(--fontRegular);
   display: grid;
   grid-template-columns: 40vw 40vw;
   grid-template-rows: 10vh 30vh 40vh;
@@ -33,7 +41,8 @@
     "header ."
     "instructions html_editor"
     "emmet_editor expected_editor";
-
+  justify-content: center;
+  align-content: center;
   background: linear-gradient(to right, var(--mainColor) 50%, #a3ab9c 50%);
 }
 

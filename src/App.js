@@ -28,6 +28,7 @@ function App() {
         <Nav />
       </header>
       <Instructions />
+
       <Editor key="emmetEditor" title="Emmet">
         <CodeMirror
           value={currentEmmet}
