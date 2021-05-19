@@ -52,6 +52,12 @@ body {
   align-items: center;
   grid-area: header;
 }
+
+.header_h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  font-family: "Fredoka One", cursive;
+}
 .editor,
 .instructions {
   /* border: 1px solid black; */
