@@ -3,6 +3,7 @@ import "../node_modules/animate.css";
 import Instructions from "./components/Instructions";
 import Editor from "./components/Editor/Editor";
 import Nav from "./components/ExercisesNav/ExercisesNav";
+import Header from "./components/Header/Header";
 import expand from "emmet";
 import { Controlled as CodeMirror } from "react-codemirror2";
 import { useState, useEffect } from "react";
@@ -23,12 +24,8 @@ function App() {
 
   return (
     <div className="App">
-      <header className="header">
-        <h1 className="header_h1">Emmet practice</h1>
-        <Nav />
-      </header>
+      <Header />
       <Instructions />
-
       <Editor key="emmetEditor" title="Emmet">
         <CodeMirror
           value={currentEmmet}
@@ -42,7 +39,6 @@ function App() {
         />
         <button className="btn-next correct animation">Next</button>
       </Editor>
-
       <Editor key="resultHTML" title="Result HTML">
         <CodeMirror
           value={interpretedHTML}
