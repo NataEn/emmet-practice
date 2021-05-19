@@ -21,10 +21,11 @@ body {
   overflow: hidden;
 }
 .App {
+  box-sizing: border-box;
   width: 100%;
   height: 100vh;
   overflow: hidden;
-  padding: var(--btn-padding);
+  padding: 3rem;
   text-align: center;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
@@ -34,8 +35,8 @@ body {
   font-size: var(--fontRegular);
   display: grid;
   grid-template-columns: 40vw 40vw;
-  grid-template-rows: 0.5fr 2fr 4fr 0.2fr 0.2fr;
-  column-gap: var(--gridGap);
+  grid-template-rows: 0.5fr 3fr 4fr 0.2fr 0.1fr;
+  column-gap: 2.5rem;
   row-gap: var(--gridGap);
   grid-template-areas:
     "header html_editor"
