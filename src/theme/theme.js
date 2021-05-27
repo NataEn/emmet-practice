@@ -30,6 +30,7 @@ const Theme = {
     large: "3rem",
     medium: "1.5rem",
     small: "0.25rem",
+    regular: "1rem",
   },
   grid: {
     gap: "1.5rem",

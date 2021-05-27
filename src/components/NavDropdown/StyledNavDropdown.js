@@ -49,3 +49,11 @@ export const StyledLevel = styled.span`
     border: 2px solid ${(props) => props.theme.colors.primaryLight};
   }
 `;
+
+export const StyledButton = styled.button`
+  margin: ${(props) => props.theme.margin.regular};
+  color: white;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+`;

@@ -8,12 +8,14 @@ export default function Arrow({
   background = false,
   hover = false,
   color = false,
+  onClick,
 }) {
   return (
     <StyledArrowWrapper
       position={position}
       hover={hover}
       background={background}
+      onClick={onClick}
     >
       <StyledArrow size={size} direction={direction} color={color} />
     </StyledArrowWrapper>

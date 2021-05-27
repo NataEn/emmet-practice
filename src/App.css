@@ -35,7 +35,7 @@ body {
   font-size: var(--fontRegular);
   display: grid;
   grid-template-columns: 40vw 40vw;
-  grid-template-rows: 0.5fr 3fr 4fr 0.2fr 0.1fr;
+  grid-template-rows: 0.2fr auto 4fr 0.2fr 0.1fr;
   column-gap: 2.5rem;
   row-gap: var(--gridGap);
   grid-template-areas:
@@ -103,10 +103,15 @@ div.CodeMirror-scroll > div.CodeMirror-gutters {
   font-family: inherit;
   border: 0;
   border-radius: var(--radius);
+  cursor: pointer;
 }
 
-.btn-next.disabled {
+.wrong {
   background-color: var(--incomplete);
+}
+
+.wrong:hover {
+  animation: headShake 1s ease-in;
 }
 .btn-next.correct {
   background-color: var(--success);
