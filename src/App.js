@@ -63,7 +63,11 @@ function App() {
         currentLevel={currentLevel}
         reset={resetResults}
       />
-      <Instructions text={data[currentLevel].instructions} />
+      <Instructions
+        instructions={data[currentLevel].instructions}
+        info={data[currentLevel].info}
+        greeting={currentLevel === 0 ? data[currentLevel].greeting : null}
+      />
       <Editor key="emmetEditor" title="Emmet">
         <CodeMirror
           value={currentEmmet}

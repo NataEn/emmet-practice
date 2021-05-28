@@ -25,6 +25,7 @@ const Theme = {
     large: "3rem",
     medium: "1.5rem",
     small: "0.5rem",
+    micro: "2px",
   },
   margin: {
     large: "3rem",

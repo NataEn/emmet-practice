@@ -3,17 +3,38 @@ import styled from "styled-components";
 const StyledInstructionsWrapper = styled.div`
   border-radius: ${(props) => props.theme.border.radius};
   grid-area: instructions;
-  overflow: hidden;
   text-align: left;
 `;
-const StyledInstructions = styled.p`
+const StyledInfo = styled.ul``;
+const StyledSpan = styled.span`
+  background-color: rgba(255, 255, 255, 0.2);
+  font-weight: 900;
+  font-family: "Source Code Pro", monospace;
+  padding: 0 ${(props) => props.theme.padding.micro};
+`;
+const StyledInstruction = styled.p`
   margin: 0;
+  line-height: 1.2;
 `;
 
-export default function Instructions({ text }) {
+export default function Instructions({ instructions, greeting, tags, info }) {
   return (
     <StyledInstructionsWrapper>
-      <StyledInstructions>{text}</StyledInstructions>
+      {instructions.map((item, index) => (
+        <StyledInstruction key={index}>{item}</StyledInstruction>
+      ))}
+
+      <StyledInfo>
+        {info.map((item, index) => {
+          const splitInstruction = item.split(":");
+          return (
+            <li key={index}>
+              <StyledSpan>{splitInstruction[0]}</StyledSpan>:
+              {splitInstruction[1]}
+            </li>
+          );
+        })}
+      </StyledInfo>
     </StyledInstructionsWrapper>
   );
 }
