@@ -11,117 +11,140 @@
   },
   {
     "name": "question 2",
-    "info": "you can do xxxx and 6666......",
+    "instructions": ["these are instructions for q 2"],
+    "info": ["you can do xxxx and 6666......"],
     "expectedHTML": "<p class=\"myOtherClass\"></p>"
   },
   {
     "name": "question 3",
-    "info": "you can do xxwwwx and 65556......",
+    "instructions": ["these are instructions for q 3"],
+    "info": ["you can do xxwwwx and 65556......"],
     "expectedHTML": "<p class=\"myThirdClass\"></p>"
   },
   {
     "name": "question 4",
-    "info": "you can do xxwwwx and 65556......",
+    "instructions": ["these are instructions for q 4"],
+    "info": ["you can do xxwwwx and 65556......"],
     "expectedHTML": "<p class=\"myFourthClass\"></p>"
   },
   {
     "name": "question 5",
-    "info": "you can do 5",
+    "instructions": ["these are instructions for q 5"],
+    "info": ["you can do 5"],
     "expectedHTML": "<p class=\"myOtherClass\"></p>"
   },
   {
     "name": "question 6",
-    "info": "you can do 6",
+    "instructions": ["these are instructions for q 6"],
+    "info": ["you can do 6"],
     "expectedHTML": "<p class=\"myThirdClass\"></p>"
   },
   {
     "name": "question 7",
-    "info": "you can do 7",
+    "instructions": ["these are instructions for q 7"],
+    "info": ["you can do 7"],
     "expectedHTML": "<p class=\"myFourthClass\"></p>"
   },
   {
     "name": "question 8",
-    "info": "you can do 8",
+    "instructions": ["these are instructions for q 8"],
+    "info": ["you can do 8"],
     "expectedHTML": "<p class=\"myOtherClass\"></p>"
   },
   {
     "name": "question 9",
-    "info": "you can do 9",
+    "instructions": ["these are instructions for q 9"],
+    "info": ["you can do 9"],
     "expectedHTML": "<p class=\"myThirdClass\"></p>"
   },
   {
     "name": "question 10",
-    "info": "you can do 10",
+    "instructions": ["these are instructions for q 10"],
+    "info": ["you can do 10"],
     "expectedHTML": "<p class=\"myFourthClass\"></p>"
   },
   {
     "name": "question 11",
-    "info": "you can do 11",
+    "instructions": ["these are instructions for q 11"],
+    "info": ["you can do 11"],
     "expectedHTML": "<p class=\"myClass\"></p>"
   },
   {
     "name": "question 12",
-    "info": "you can do 12",
+    "instructions": ["these are instructions for q 12"],
+    "info": ["you can do 12"],
     "expectedHTML": "<p class=\"myOtherClass\"></p>"
   },
   {
     "name": "question 13",
-    "info": "you can do 13",
+    "instructions": ["these are instructions for q 13"],
+    "info": ["you can do 13"],
     "expectedHTML": "<p class=\"myThirdClass\"></p>"
   },
   {
     "name": "question 14",
-    "info": "you can do 14",
+    "instructions": ["these are instructions for q 14"],
+    "info": ["you can do 14"],
     "expectedHTML": "<p class=\"myFourthClass\"></p>"
   },
   {
     "name": "question 15",
-    "info": "you can do 15",
+    "instructions": ["these are instructions for q 15"],
+    "info": ["you can do 15"],
     "expectedHTML": "<p class=\"myOtherClass\"></p>"
   },
   {
     "name": "question 6",
-    "info": "you can do 6",
+    "instructions": ["these are instructions for q 16"],
+    "info": ["you can do 6"],
     "expectedHTML": "<p class=\"myThirdClass\"></p>"
   },
   {
     "name": "question 17",
-    "info": "you can do 17",
+    "instructions": ["these are instructions for q 17"],
+    "info": ["you can do 17"],
     "expectedHTML": "<p class=\"myFourthClass\"></p>"
   },
   {
     "name": "question 18",
-    "info": "you can do 18",
+    "instructions": ["these are instructions for q 18"],
+    "info": ["you can do 18"],
     "expectedHTML": "<p class=\"myOtherClass\"></p>"
   },
   {
     "name": "question 19",
-    "info": "you can do 19",
+    "instructions": ["these are instructions for q 19"],
+    "info": ["you can do 19"],
     "expectedHTML": "<p class=\"myThirdClass\"></p>"
   },
   {
     "name": "question 20",
-    "info": "you can do 20",
+    "instructions": ["these are instructions for q 20"],
+    "info": ["you can do 20"],
     "expectedHTML": "<p class=\"myFourthClass\"></p>"
   },
   {
     "name": "question 21",
-    "info": "you can do 21",
+    "instructions": ["these are instructions for q 21"],
+    "info": ["you can do 21"],
     "expectedHTML": "<p class=\"myClass\"></p>"
   },
   {
     "name": "question 22",
-    "info": "you can do 22",
+    "instructions": ["these are instructions for q 22"],
+    "info": ["you can do 22"],
     "expectedHTML": "<p class=\"myOtherClass\"></p>"
   },
   {
     "name": "question 23",
-    "info": "you can do 23",
+    "instructions": ["these are instructions for q 23"],
+    "info": ["you can do 23"],
     "expectedHTML": "<p class=\"myThirdClass\"></p>"
   },
   {
     "name": "question 24",
-    "info": "you can do 24",
+    "instructions": ["these are instructions for q 24"],
+    "info": ["you can do 24"],
     "expectedHTML": "<p class=\"myFourthClass\"></p>"
   }
 ]

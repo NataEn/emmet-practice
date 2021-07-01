@@ -4,8 +4,6 @@ import Arrow from "../Arrow/Arrow";
 import NavDropdown from "../NavDropdown/NavDropdown.jsx";
 
 export default function ExercisesNav({ currentLevel, setLevel, reset }) {
-  console.log("current level", currentLevel);
-
   const [showTooltip, setShowTooltip] = useState(false);
   return (
     <div className="header_exercises">
@@ -25,7 +23,8 @@ export default function ExercisesNav({ currentLevel, setLevel, reset }) {
         onClick={() => setShowTooltip(!showTooltip)}
       >
         Level
-        {currentLevel + 1} of 24 <Arrow size={"3px"} direction={"down"} />
+        <span>{currentLevel + 1}</span> of 24
+        <Arrow size={"3px"} direction={"down"} />
       </div>
       <Arrow
         size={"7px"}
@@ -34,6 +33,7 @@ export default function ExercisesNav({ currentLevel, setLevel, reset }) {
         hover={true}
         onClick={() => {
           console.log("next level");
+
           if (currentLevel >= 0 && currentLevel <= 22)
             setLevel(currentLevel + 1);
         }}

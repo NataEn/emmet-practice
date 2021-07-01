@@ -25,7 +25,8 @@ function App() {
 
   const data = Data;
   const resetResults = () => {
-    console.log("resetting results");
+    setCurrentLevel(0);
+    //clear local storage
   };
   console.log("game data", data);
 

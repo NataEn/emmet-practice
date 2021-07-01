@@ -44,6 +44,7 @@ export const StyledLevel = styled.span`
   color: white;
   margin: ${(props) => props.theme.margin.small};
   background-color: ${(props) => props.theme.colors.primaryDark};
+  cursor: pointer;
 
   &.selected {
     border: 2px solid ${(props) => props.theme.colors.primaryLight};
