@@ -41,13 +41,17 @@ function App() {
 
   // clear the inputs in the
   const clearInputs = () => {
-    setCurrentLevel("");
+    debugger;
+    setCurrentEmmet("");
+    setInterpretedHTML("");
   };
 
   const setNextQuestion = () => {
+    debugger;
     if (isCorrectAnswer) {
       if (currentLevel >= 0 && currentLevel <= 22) {
         setCurrentLevel(currentLevel + 1);
+        clearInputs();
       } else if (currentLevel === 23) {
         console.log("all done");
       }
