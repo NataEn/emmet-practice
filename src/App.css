@@ -96,25 +96,6 @@ div.CodeMirror-scroll > div.CodeMirror-gutters {
 .CodeMirror-code > div > div > div {
   color: white;
 }
-.btn-next {
-  position: absolute;
-  right: 2vw;
-  bottom: 2vw;
-  width: fit-content;
-  align-self: flex-end;
-  padding: var(--btn-padding) calc(var(--btn-padding) * 2);
-  color: #fff;
-  /* opacity: 0.5; */
-  font-size: 150%;
-  font-family: inherit;
-  border: 0;
-  border-radius: var(--radius);
-  cursor: pointer;
-}
-
-.wrong {
-  background-color: var(--incomplete);
-}
 
 .wrong:hover {
   animation: headShake 1s ease-in;

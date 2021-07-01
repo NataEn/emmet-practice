@@ -20,7 +20,7 @@ function App() {
   const [currentEmmet, setCurrentEmmet] = useState("p.myClass");
   const [interpretedHTML, setInterpretedHTML] = useState("");
   const [currentLevel, setCurrentLevel] = useState(0);
-  const [isCorrectAnswer, setIsCorrectAnswer] = useState(false);
+  const [isCorrectAnswer, setIsCorrectAnswer] = useState(true);
   const [userData, setUserData] = useState({});
 
   const data = Data;
@@ -39,22 +39,21 @@ function App() {
     setInterpretedHTML(() => expand(currentEmmet));
   }, [currentEmmet]);
 
+  // clear the inputs in the
   const clearInputs = () => {
     setCurrentLevel("");
   };
 
   const setNextQuestion = () => {
     if (isCorrectAnswer) {
-      setCurrentLevel(() => {
-        if (currentLevel < data.length) return currentLevel + 1;
-        else console.log("all done");
-      });
+      if (currentLevel >= 0 && currentLevel <= 22) {
+        setCurrentLevel(currentLevel + 1);
+      } else if (currentLevel === 23) {
+        console.log("all done");
+      }
+    } else {
+      alert("pls correct your answer");
     }
-    setCurrentLevel(() => {
-      if (currentLevel < data.length) return currentLevel + 1;
-      else console.log("all done");
-    });
-    clearInputs();
   };
 
   return (
