@@ -5,9 +5,9 @@ export default function Arrow({
   size,
   direction,
   position,
-  background = false,
-  hover = false,
-  color = false,
+  background = null,
+  hover = null,
+  color = null,
   onClick,
 }) {
   return (

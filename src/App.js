@@ -37,17 +37,23 @@ function App() {
 
   useEffect(() => {
     setInterpretedHTML(() => expand(currentEmmet));
+    const checkIfCorrect = () => {
+      if (interpretedHTML === data[currentLevel].expectedHTML) {
+        setInterpretedHTML(true);
+      } else {
+        setIsCorrectAnswer(false);
+      }
+    };
+    checkIfCorrect();
   }, [currentEmmet]);
 
   // clear the inputs in the
   const clearInputs = () => {
-    debugger;
     setCurrentEmmet("");
     setInterpretedHTML("");
   };
 
   const setNextQuestion = () => {
-    debugger;
     if (isCorrectAnswer) {
       if (currentLevel >= 0 && currentLevel <= 22) {
         setCurrentLevel(currentLevel + 1);
@@ -77,9 +83,11 @@ function App() {
           value={currentEmmet}
           options={codeMirrorOptions}
           onBeforeChange={(editor, data, value) => {
+            debugger;
             setCurrentEmmet(value);
           }}
           onChange={(editor, data, value) => {
+            debugger;
             console.log(value);
           }}
         />

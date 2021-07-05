@@ -14,6 +14,7 @@ const NavDropdown = ({ show, currentLevel, setLevel, reset }) => {
       <StyledLevels>
         {levelsArr.map((level, index) => (
           <StyledLevel
+            key={index}
             className={currentLevel === index ? "selected" : ""}
             onClick={() => setLevel(index)}
           >
