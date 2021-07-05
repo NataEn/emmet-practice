@@ -8,6 +8,7 @@ export default function useLocalAnswers() {
   //set initial state function to useState so logic is only executed once
   const [storedAnswers, setAnswers] = useState(() => {
     const localAnswers = window.localStorage.getItem("emmetAnswers");
+    debugger;
     if (localAnswers) {
       return JSON.parse(localAnswers);
     } else {

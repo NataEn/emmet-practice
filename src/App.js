@@ -18,14 +18,17 @@ const codeMirrorOptions = {
   lineNumbers: true,
 };
 
-const trimmer = (str) => str.replace(/\s*$/, "");
-
 function App() {
+  const [localAnswers, setLocalAnswers, resetLocalAnswers] = useLocalStorage();
+  const [currentLevel, setCurrentLevel] = useState(0);
   const [currentEmmet, setCurrentEmmet] = useState("");
   const [interpretedHTML, setInterpretedHTML] = useState("");
-  const [currentLevel, setCurrentLevel] = useState(0);
-  const [isCorrectAnswer, setIsCorrectAnswer] = useState(false);
-  const [localAnswers, setLocalAnswers, resetLocalAnswers] = useLocalStorage();
+
+  const [isCorrectAnswer, setIsCorrectAnswer] = useState(() =>
+    localAnswers[currentLevel].isCorrect
+      ? localAnswers[currentLevel].isCorrect
+      : false
+  );
 
   const answersData = Data;
 
@@ -37,8 +40,16 @@ function App() {
    */
 
   useEffect(() => {
+    const trimmer = (str) => str.replace(/\s*$/, "");
     setInterpretedHTML(() => expand(trimmer(currentEmmet)));
   }, [currentEmmet]);
+
+  useEffect(() => {
+    setCurrentEmmet(function () {
+      const emmet = localAnswers[currentLevel].answer;
+      return emmet ? emmet : "";
+    });
+  }, [currentLevel]);
 
   useEffect(() => {
     setLocalAnswers(currentLevel, isCorrectAnswer, currentEmmet);
