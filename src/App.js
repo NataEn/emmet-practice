@@ -16,36 +16,49 @@ const codeMirrorOptions = {
   lineNumbers: true,
 };
 
+const trimmer = (str) => str.replace(/\s*$/, "");
+
 function App() {
-  const [currentEmmet, setCurrentEmmet] = useState("p.myClass");
+  const [currentEmmet, setCurrentEmmet] = useState("");
   const [interpretedHTML, setInterpretedHTML] = useState("");
   const [currentLevel, setCurrentLevel] = useState(0);
-  const [isCorrectAnswer, setIsCorrectAnswer] = useState(true);
+  const [isCorrectAnswer, setIsCorrectAnswer] = useState(false);
   const [userData, setUserData] = useState({});
 
-  const data = Data;
+  const answersData = Data;
   const resetResults = () => {
     setCurrentLevel(0);
     //clear local storage
   };
-  console.log("game data", data);
 
+  /** how to extract emmet from text
   const source = "Hello world ul.tabs>li";
   const dataEmmet = extract(source, 22); // { abbreviation: 'ul.tabs>li' }
 
   console.log(expand(dataEmmet.abbreviation)); // <ul class="tabs"><li></li></ul>
+   */
 
   useEffect(() => {
-    setInterpretedHTML(() => expand(currentEmmet));
-    const checkIfCorrect = () => {
-      if (interpretedHTML === data[currentLevel].expectedHTML) {
-        setInterpretedHTML(true);
-      } else {
-        setIsCorrectAnswer(false);
-      }
-    };
-    checkIfCorrect();
+    setInterpretedHTML(() => expand(trimmer(currentEmmet)));
   }, [currentEmmet]);
+
+  const checkIfCorrect = () => {
+    if (interpretedHTML === answersData[currentLevel].expectedHTML) {
+      console.log(
+        "correct answer",
+        interpretedHTML,
+        answersData[currentLevel].expectedHTML
+      );
+      setIsCorrectAnswer(true);
+    } else {
+      console.log(
+        "not correct answer",
+        interpretedHTML,
+        answersData[currentLevel].expectedHTML
+      );
+      setIsCorrectAnswer(false);
+    }
+  };
 
   // clear the inputs in the
   const clearInputs = () => {
@@ -74,21 +87,21 @@ function App() {
         reset={resetResults}
       />
       <Instructions
-        instructions={data[currentLevel].instructions}
-        info={data[currentLevel].info}
-        greeting={currentLevel === 0 ? data[currentLevel].greeting : null}
+        instructions={answersData[currentLevel].instructions}
+        info={answersData[currentLevel].info}
+        greeting={
+          currentLevel === 0 ? answersData[currentLevel].greeting : null
+        }
       />
       <Editor key="emmetEditor" title="Emmet">
         <CodeMirror
           value={currentEmmet}
           options={codeMirrorOptions}
           onBeforeChange={(editor, data, value) => {
-            debugger;
             setCurrentEmmet(value);
           }}
           onChange={(editor, data, value) => {
-            debugger;
-            console.log(value);
+            setCurrentEmmet(value);
           }}
         />
         <NextBtn
@@ -101,17 +114,14 @@ function App() {
         <CodeMirror
           value={interpretedHTML}
           options={codeMirrorOptions}
-          onBeforeChange={(editor, data, value) => {
-            setInterpretedHTML(value);
-          }}
           onChange={(editor, data, value) => {
-            console.log("interprited HTMl", value);
+            checkIfCorrect();
           }}
         />
       </Editor>
       <Editor key="expectedHTML" title="Expected HTML">
         <CodeMirror
-          value={data[currentLevel].expectedHTML}
+          value={answersData[currentLevel].expectedHTML}
           options={codeMirrorOptions}
         />
       </Editor>

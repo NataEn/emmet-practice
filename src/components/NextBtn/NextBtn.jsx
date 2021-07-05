@@ -42,8 +42,8 @@ const StyledBtn = styled.button`
 export default function NextBtn({ isCorrect, setQuestion, currentLevel }) {
   return (
     <StyledBtn
-      active={true}
-      onClick={true ? setQuestion : () => console.log("wrong answer")}
+      active={isCorrect}
+      onClick={isCorrect ? setQuestion : () => console.log("wrong answer")}
     >
       Next
     </StyledBtn>
