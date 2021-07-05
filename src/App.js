@@ -6,6 +6,8 @@ import Header from "./components/Header/Header";
 import Data from "./practiceData.json";
 import NextBtn from "./components/NextBtn/NextBtn";
 
+import useLocalStorage from "./hooks/useLocalStorage";
+
 import expand, { extract } from "emmet";
 import { Controlled as CodeMirror } from "react-codemirror2";
 import { useState, useEffect } from "react";
@@ -23,13 +25,9 @@ function App() {
   const [interpretedHTML, setInterpretedHTML] = useState("");
   const [currentLevel, setCurrentLevel] = useState(0);
   const [isCorrectAnswer, setIsCorrectAnswer] = useState(false);
-  const [userData, setUserData] = useState({});
+  const [localAnswers, setLocalAnswers, resetLocalAnswers] = useLocalStorage();
 
   const answersData = Data;
-  const resetResults = () => {
-    setCurrentLevel(0);
-    //clear local storage
-  };
 
   /** how to extract emmet from text
   const source = "Hello world ul.tabs>li";
@@ -42,21 +40,14 @@ function App() {
     setInterpretedHTML(() => expand(trimmer(currentEmmet)));
   }, [currentEmmet]);
 
+  useEffect(() => {
+    setLocalAnswers(currentLevel, isCorrectAnswer, currentEmmet);
+  }, [isCorrectAnswer, currentEmmet, currentLevel]);
+
   const checkIfCorrect = () => {
     if (interpretedHTML === answersData[currentLevel].expectedHTML) {
-      console.log(
-        "correct answer",
-        interpretedHTML,
-        answersData[currentLevel].expectedHTML
-      );
       setIsCorrectAnswer(true);
     } else {
-      console.log(
-        "not correct answer",
-        interpretedHTML,
-        answersData[currentLevel].expectedHTML
-      );
-      setIsCorrectAnswer(false);
     }
   };
 
@@ -84,7 +75,7 @@ function App() {
       <Header
         setLevel={setCurrentLevel}
         currentLevel={currentLevel}
-        reset={resetResults}
+        reset={resetLocalAnswers}
       />
       <Instructions
         instructions={answersData[currentLevel].instructions}
