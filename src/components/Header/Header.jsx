@@ -7,6 +7,7 @@ const StyledHeader = styled.header`
   justify-content: space-between;
   align-items: flex-start;
   grid-area: header;
+  margin-right: 2rem;
 `;
 
 const StyledH1 = styled.h1`

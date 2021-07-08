@@ -94,65 +94,77 @@ function App() {
       <Router>
         <Switch>
           <Route path="/">
-            <Header
-              setLevel={setCurrentLevel}
-              currentLevel={currentLevel}
-              reset={resetLocalAnswers}
-            />
-            <Instructions
-              instructions={answersData[currentLevel].instructions}
-              info={answersData[currentLevel].info}
-              greeting={
-                currentLevel === 0 ? answersData[currentLevel].greeting : null
-              }
-            />
-            <Editor key="emmetEditor" title="Emmet">
-              <CodeMirror
-                value={currentEmmet}
-                options={codeMirrorOptions}
-                onBeforeChange={(editor, data, value) => {
-                  setCurrentEmmet(value);
-                }}
-                onChange={(editor, data, value) => {
-                  setCurrentEmmet(value);
-                }}
-              />
-              <NextBtn
-                currentLevel={currentLevel}
-                isCorrect={isCorrectAnswer}
-                setQuestion={setNextQuestion}
-              />
-            </Editor>
-            <Editor key="resultHTML" title="Result HTML">
-              <CodeMirror
-                value={interpretedHTML}
-                options={codeMirrorOptions}
-                onChange={(editor, data, value) => {
-                  checkIfCorrect();
-                }}
-              />
-            </Editor>
-            <Editor key="expectedHTML" title="Expected HTML">
-              <CodeMirror
-                value={answersData[currentLevel].expectedHTML}
-                options={codeMirrorOptions}
-              />
-            </Editor>
+            <div className="app-container">
+              <div className="app-container_play">
+                <Header
+                  setLevel={setCurrentLevel}
+                  currentLevel={currentLevel}
+                  reset={resetLocalAnswers}
+                />
+                <Instructions
+                  instructions={answersData[currentLevel].instructions}
+                  info={answersData[currentLevel].info}
+                  greeting={
+                    currentLevel === 0
+                      ? answersData[currentLevel].greeting
+                      : null
+                  }
+                />
+                <Editor
+                  key="emmetEditor"
+                  title="Emmet"
+                  className="editor__emmet"
+                >
+                  <CodeMirror
+                    value={currentEmmet}
+                    options={codeMirrorOptions}
+                    onBeforeChange={(editor, data, value) => {
+                      setCurrentEmmet(value);
+                    }}
+                    onChange={(editor, data, value) => {
+                      setCurrentEmmet(value);
+                    }}
+                  />
+                  <NextBtn
+                    currentLevel={currentLevel}
+                    isCorrect={isCorrectAnswer}
+                    setQuestion={setNextQuestion}
+                  />
+                </Editor>
+                <p className="credit">
+                  EmmetPractice is created by NataEn •
+                  <a href="https://github.com/NataEn" target="_blank">
+                    GitHub
+                  </a>{" "}
+                  •
+                  <a
+                    href="https://www.linkedin.com/in/natalieen/"
+                    target="_blank"
+                  >
+                    LinkedIn
+                  </a>
+                </p>
+              </div>
+              <div className="app-container_results">
+                <Editor key="resultHTML" title="Result HTML">
+                  <CodeMirror
+                    value={interpretedHTML}
+                    options={codeMirrorOptions}
+                    onChange={(editor, data, value) => {
+                      checkIfCorrect();
+                    }}
+                  />
+                </Editor>
+                <Editor key="expectedHTML" title="Expected HTML">
+                  <CodeMirror
+                    value={answersData[currentLevel].expectedHTML}
+                    options={codeMirrorOptions}
+                  />
+                </Editor>{" "}
+              </div>
+            </div>
           </Route>
         </Switch>
-        <p className="credit">
-          EmmetPractice is created by NataEn •{" "}
-          <a href="https://github.com/NataEn" target="_blank">
-            GitHub
-          </a>
-          •{" "}
-          <a href="https://www.linkedin.com/in/natalieen/" target="_blank">
-            LinkedIn
-          </a>
-        </p>
-        <nav>
-          <Link to="/">practice</Link>
-        </nav>
       </Router>
     </div>
   );

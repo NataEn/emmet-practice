@@ -22,7 +22,7 @@ body {
 }
 .App {
   box-sizing: border-box;
-  width: 100%;
+  width: 100vw;
   height: 100vh;
   overflow: hidden;
   padding: 3rem;
@@ -33,22 +33,33 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: var(--fontRegular);
-  display: grid;
-  grid-template-columns: 40vw 40vw;
-  /* grid-template-rows: 0.2fr auto 4fr 0.2fr 0.1fr; */
-  grid-auto-rows: repeat (10, 50px);
-  column-gap: 2.5rem;
-  row-gap: var(--gridGap);
-  grid-template-areas:
-    "header html_editor"
-    "header ."
-    "instructions tml_editor"
-    "emmet_editor expected_editor"
-    "credit ."
-    ". .";
-  justify-content: center;
-  align-content: center;
+
   background: linear-gradient(to right, var(--mainColor) 50%, #a3ab9c 50%);
+}
+.app-container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: space-around;
+}
+.app-container_results,
+.app-container_play {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 50%;
+}
+.credit {
+  display: flex;
+  flex-direction: row;
+  padding: 0 2rem;
+  word-spacing: 0.5vw;
+}
+.credit a {
+  text-decoration: none;
+  color: inherit;
+  font-weight: 700;
+  padding: 0 0.5rem;
 }
 
 .editor_title {
@@ -60,26 +71,18 @@ body {
   margin: 0;
   border-radius: var(--radius) var(--radius) 0 0;
 }
-.editor__emmet {
-  grid-area: emmet_editor;
-  grid-row: span 2;
-  width: 100%;
-  position: relative;
+.editor__emmet,
+.editor__result-html,
+.editor__expected-html {
   display: flex;
   flex-direction: column;
   align-items: stretch;
+  margin: 2rem;
 }
-.editor__result-html {
-  grid-area: html_editor;
-  grid-row: span 2;
-}
-.editor__expected-html {
-  grid-area: expected_editor;
-  grid-row: span 2;
-}
-.credit {
-  grid-area: credit;
-  grid-row: span 1;
+.editor__emmet {
+  height: 50%;
+  max-height: 200px;
+  position: relative;
 }
 
 .react-codemirror2 {
@@ -140,5 +143,35 @@ div.CodeMirror-scroll > div.CodeMirror-gutters {
 @keyframes beat {
   to {
     transform: scale(1.2);
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  body {
+    overflow: scroll;
+  }
+  .App {
+    background: none;
+    overflow: scroll;
+    padding: 0;
+  }
+  .app-container {
+    flex-direction: column;
+    justify-content: center;
+    width: 100vw;
+
+    height: unset;
+  }
+  .app-container_results,
+  .app-container_play {
+    width: 98vw;
+    padding: 1rem;
+  }
+
+  .app-container_play {
+    background-color: var(--mainColor);
+  }
+  .app-container_results {
+    background-color: #a3ab9c;
   }
 }

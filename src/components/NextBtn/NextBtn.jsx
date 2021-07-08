@@ -18,8 +18,8 @@ const shakeAnimation = css`
 
 const StyledBtn = styled.button`
   position: absolute;
-  right: 2vw;
-  bottom: 2vw;
+  right: 1rem;
+  bottom: 1rem;
   width: fit-content;
   align-self: flex-end;
   padding: ${Theme.padding.small} calc(${Theme.padding.small}*2);

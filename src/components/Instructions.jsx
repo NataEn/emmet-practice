@@ -4,6 +4,7 @@ const StyledInstructionsWrapper = styled.div`
   border-radius: ${(props) => props.theme.border.radius};
   grid-area: instructions;
   text-align: left;
+  margin-right: 2rem;
 `;
 const StyledInfo = styled.ul``;
 const StyledSpan = styled.span`
