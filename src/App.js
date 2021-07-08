@@ -6,6 +6,8 @@ import Header from "./components/Header/Header";
 import Data from "./practiceData.json";
 import NextBtn from "./components/NextBtn/NextBtn";
 
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+
 import useLocalStorage from "./hooks/useLocalStorage";
 
 import expand, { extract } from "emmet";
@@ -41,18 +43,24 @@ function App() {
 
   useEffect(() => {
     const trimmer = (str) => str.replace(/\s*$/, "");
-    setInterpretedHTML(() => expand(trimmer(currentEmmet)));
+    const newHTML = expand(trimmer(currentEmmet));
+    setInterpretedHTML(newHTML);
   }, [currentEmmet]);
 
   useEffect(() => {
-    setCurrentEmmet(function () {
-      const emmet = localAnswers[currentLevel].answer;
-      return emmet ? emmet : "";
-    });
+    const newEmmet = localAnswers[currentLevel].answer
+      ? localAnswers[currentLevel].answer
+      : "";
+    setCurrentEmmet(newEmmet);
+    setIsCorrectAnswer(() => localAnswers[currentLevel].answer || false);
   }, [currentLevel]);
 
   useEffect(() => {
-    setLocalAnswers(currentLevel, isCorrectAnswer, currentEmmet);
+    const newLocalStorage = [...localAnswers];
+    newLocalStorage[currentLevel].isCorrect = isCorrectAnswer;
+    newLocalStorage[currentLevel].answer = currentEmmet;
+
+    setLocalAnswers(newLocalStorage);
   }, [isCorrectAnswer, currentEmmet, currentLevel]);
 
   const checkIfCorrect = () => {
@@ -83,51 +91,69 @@ function App() {
 
   return (
     <div className="App">
-      <Header
-        setLevel={setCurrentLevel}
-        currentLevel={currentLevel}
-        reset={resetLocalAnswers}
-      />
-      <Instructions
-        instructions={answersData[currentLevel].instructions}
-        info={answersData[currentLevel].info}
-        greeting={
-          currentLevel === 0 ? answersData[currentLevel].greeting : null
-        }
-      />
-      <Editor key="emmetEditor" title="Emmet">
-        <CodeMirror
-          value={currentEmmet}
-          options={codeMirrorOptions}
-          onBeforeChange={(editor, data, value) => {
-            setCurrentEmmet(value);
-          }}
-          onChange={(editor, data, value) => {
-            setCurrentEmmet(value);
-          }}
-        />
-        <NextBtn
-          currentLevel={currentLevel}
-          isCorrect={isCorrectAnswer}
-          setQuestion={setNextQuestion}
-        />
-      </Editor>
-      <Editor key="resultHTML" title="Result HTML">
-        <CodeMirror
-          value={interpretedHTML}
-          options={codeMirrorOptions}
-          onChange={(editor, data, value) => {
-            checkIfCorrect();
-          }}
-        />
-      </Editor>
-      <Editor key="expectedHTML" title="Expected HTML">
-        <CodeMirror
-          value={answersData[currentLevel].expectedHTML}
-          options={codeMirrorOptions}
-        />
-      </Editor>
-      <p className="credit">some credits...</p>
+      <Router>
+        <Switch>
+          <Route path="/">
+            <Header
+              setLevel={setCurrentLevel}
+              currentLevel={currentLevel}
+              reset={resetLocalAnswers}
+            />
+            <Instructions
+              instructions={answersData[currentLevel].instructions}
+              info={answersData[currentLevel].info}
+              greeting={
+                currentLevel === 0 ? answersData[currentLevel].greeting : null
+              }
+            />
+            <Editor key="emmetEditor" title="Emmet">
+              <CodeMirror
+                value={currentEmmet}
+                options={codeMirrorOptions}
+                onBeforeChange={(editor, data, value) => {
+                  setCurrentEmmet(value);
+                }}
+                onChange={(editor, data, value) => {
+                  setCurrentEmmet(value);
+                }}
+              />
+              <NextBtn
+                currentLevel={currentLevel}
+                isCorrect={isCorrectAnswer}
+                setQuestion={setNextQuestion}
+              />
+            </Editor>
+            <Editor key="resultHTML" title="Result HTML">
+              <CodeMirror
+                value={interpretedHTML}
+                options={codeMirrorOptions}
+                onChange={(editor, data, value) => {
+                  checkIfCorrect();
+                }}
+              />
+            </Editor>
+            <Editor key="expectedHTML" title="Expected HTML">
+              <CodeMirror
+                value={answersData[currentLevel].expectedHTML}
+                options={codeMirrorOptions}
+              />
+            </Editor>
+          </Route>
+        </Switch>
+        <p className="credit">
+          EmmetPractice is created by NataEn •{" "}
+          <a href="https://github.com/NataEn" target="_blank">
+            GitHub
+          </a>
+          •{" "}
+          <a href="https://www.linkedin.com/in/natalieen/" target="_blank">
+            LinkedIn
+          </a>
+        </p>
+        <nav>
+          <Link to="/">practice</Link>
+        </nav>
+      </Router>
     </div>
   );
 }

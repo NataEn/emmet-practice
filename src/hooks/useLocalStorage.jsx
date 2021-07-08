@@ -16,14 +16,16 @@ export default function useLocalAnswers() {
       return answersArr;
     }
   });
-  const setStoredAnswers = (index, isCorrect, answer) => {
-    setAnswers(() => {
-      const newArr = [...storedAnswers];
-      newArr[index].isCorrect = isCorrect;
-      newArr[index].answer = answer;
-      window.localStorage.setItem("emmetAnswers", JSON.stringify(newArr));
-      return newArr;
-    });
+  // const setStoredAnswers = (index, isCorrect, answer) => {
+  //   setAnswers(() => {
+  //     const newArr = [...storedAnswers];
+  //     newArr[index].isCorrect = isCorrect;
+  //     newArr[index].answer = answer;
+  //     window.localStorage.setItem("emmetAnswers", JSON.stringify(newArr));
+  //     return newArr;
+  //   });
+  const setStoredAnswers = (newLocalStorage) => {
+    setAnswers(newLocalStorage);
   };
 
   const resetStoredAnswers = () => {
