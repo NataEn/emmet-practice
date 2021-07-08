@@ -18,13 +18,19 @@ const StyledInstruction = styled.p`
   line-height: 1.2;
 `;
 
-export default function Instructions({ instructions, greeting, tags, info }) {
+export default function Instructions({
+  instructions,
+  greeting,
+  tags,
+  info,
+  subject,
+}) {
   return (
     <StyledInstructionsWrapper>
       {instructions.map((item, index) => (
         <StyledInstruction key={index}>{item}</StyledInstruction>
       ))}
-
+      <h3>{subject}</h3>
       <StyledInfo>
         {info.map((item, index) => {
           const splitInstruction = item.split(":");

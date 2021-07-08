@@ -1,148 +1,169 @@
 [
   {
-    "name": "question 1",
+    "subject": "Naming, children and siblings ",
     "instructions": [
       "Welcome to Emmet Practice, a playground where you practice emmet abbreviations to write super fast HTML code!",
       "In the next few exercises you will learn the basic rules of emmet abbreviations.",
       "Edit the text in the Emmet editor to match with the expected HTML code. Use the following rules."
     ],
-    "info": ["Child >:"],
-    "expectedHTML": "<p class=\"myClass\"></p>"
+    "info": [
+      "No naming restrictions: use any tag name to create html elements.",
+      "Child >: This operator specifies a childe element",
+      "Multiplication *: This operator defines how many times an adjacent element should be outputted"
+    ],
+    "expectedHTML": "div>ul>li*3"
   },
   {
-    "name": "question 2",
-    "instructions": ["these are instructions for q 2"],
-    "info": ["you can do xxxx and 6666......"],
-    "expectedHTML": "<p class=\"myOtherClass\"></p>"
+    "subject": "Sibling and Grouping Operators",
+    "instructions": ["Combine the next rules to create the result HTML tree"],
+    "info": [
+      "Sibling +: specifies sibling elements",
+      "Grouping (): groups elements together, as mathematical parenthesis"
+    ],
+    "expectedHTML": "div>(div>(img+p))*2"
   },
   {
-    "name": "question 3",
-    "instructions": ["these are instructions for q 3"],
-    "info": ["you can do xxwwwx and 65556......"],
-    "expectedHTML": "<p class=\"myThirdClass\"></p>"
+    "subject": "Attributes",
+    "instructions": [
+      "As you saw in the last exercise, some attributes are auto-generated.",
+      "We can also use Attribute operators to define other attributes and their values as needed. ",
+      "Most common attributes are the id and css class attributes."
+    ],
+    "info": [
+      "#idNAme: The [#] notation allows specifying an id",
+      ".classNAme: The [.] notation allows specifying a class"
+    ],
+    "expectedHTML": "div#app>header.app-header+section.app-main+footer.app-footer"
   },
   {
-    "name": "question 4",
-    "instructions": ["these are instructions for q 4"],
-    "info": ["you can do xxwwwx and 65556......"],
-    "expectedHTML": "<p class=\"myFourthClass\"></p>"
+    "subject": "Custom Attributes",
+    "instructions": [
+      "[attrName=attrValue]: This notation allows creating custom attributes"
+    ],
+    "info": [
+      "In addition, we can also create our own custom attributes using the bracket notation."
+    ],
+    "expectedHTML": "div.container>div.items[data-items=5]"
   },
   {
-    "name": "question 5",
-    "instructions": ["these are instructions for q 5"],
-    "info": ["you can do 5"],
-    "expectedHTML": "<p class=\"myOtherClass\"></p>"
+    "subject": "Multiplication and Numbering",
+    "instructions": ["Use the $ operator to number the amount of li elements."],
+    "info": [
+      "Item numbering $: The $ operator can number elements!",
+      "$: adds zerows before a number"
+    ],
+    "expectedHTML": "ul.shopping-list>li[data-amount=$]*5"
   },
   {
-    "name": "question 6",
-    "instructions": ["these are instructions for q 6"],
-    "info": ["you can do 6"],
-    "expectedHTML": "<p class=\"myThirdClass\"></p>"
+    "subject": "Multiplication and Numbering",
+    "instructions": ["Use the $ operator to place zeroes before a number"],
+    "info": ["several $: add zeros before a number"],
+    "expectedHTML": "ul.shopping-list>li[data-amount=$$$]*5"
   },
   {
-    "name": "question 7",
-    "instructions": ["these are instructions for q 7"],
-    "info": ["you can do 7"],
-    "expectedHTML": "<p class=\"myFourthClass\"></p>"
+    "subject": "Inner Text",
+    "instructions": ["How about adding inner text inside elements?"],
+    "info": ["{text}: curly brackets allow adding inner text to our elements."],
+    "expectedHTML": "h1.main-heading>{Main Heading}>(h3.sub-heading>{Sub Heading $})*3"
   },
   {
-    "name": "question 8",
+    "subject": "Use the next rules to create the result HTML tree",
     "instructions": ["these are instructions for q 8"],
     "info": ["you can do 8"],
     "expectedHTML": "<p class=\"myOtherClass\"></p>"
   },
   {
-    "name": "question 9",
+    "subject": "Use the next rules to create the result HTML tree",
     "instructions": ["these are instructions for q 9"],
     "info": ["you can do 9"],
     "expectedHTML": "<p class=\"myThirdClass\"></p>"
   },
   {
-    "name": "question 10",
+    "subject": "Use the next rules to create the result HTML tree",
     "instructions": ["these are instructions for q 10"],
     "info": ["you can do 10"],
     "expectedHTML": "<p class=\"myFourthClass\"></p>"
   },
   {
-    "name": "question 11",
+    "subject": "Use the next rules to create the result HTML tree",
     "instructions": ["these are instructions for q 11"],
     "info": ["you can do 11"],
     "expectedHTML": "<p class=\"myClass\"></p>"
   },
   {
-    "name": "question 12",
+    "subject": "Use the next rules to create the result HTML tree",
     "instructions": ["these are instructions for q 12"],
     "info": ["you can do 12"],
     "expectedHTML": "<p class=\"myOtherClass\"></p>"
   },
   {
-    "name": "question 13",
+    "subject": "Use the next rules to create the result HTML tree",
     "instructions": ["these are instructions for q 13"],
     "info": ["you can do 13"],
     "expectedHTML": "<p class=\"myThirdClass\"></p>"
   },
   {
-    "name": "question 14",
+    "subject": "Use the next rules to create the result HTML tree",
     "instructions": ["these are instructions for q 14"],
     "info": ["you can do 14"],
     "expectedHTML": "<p class=\"myFourthClass\"></p>"
   },
   {
-    "name": "question 15",
+    "subject": "Use the next rules to create the result HTML tree",
     "instructions": ["these are instructions for q 15"],
     "info": ["you can do 15"],
     "expectedHTML": "<p class=\"myOtherClass\"></p>"
   },
   {
-    "name": "question 6",
+    "subject": "Use the next rules to create the result HTML tree",
     "instructions": ["these are instructions for q 16"],
     "info": ["you can do 6"],
     "expectedHTML": "<p class=\"myThirdClass\"></p>"
   },
   {
-    "name": "question 17",
+    "subject": "Use the next rules to create the result HTML tree",
     "instructions": ["these are instructions for q 17"],
     "info": ["you can do 17"],
     "expectedHTML": "<p class=\"myFourthClass\"></p>"
   },
   {
-    "name": "question 18",
+    "subject": "Use the next rules to create the result HTML tree",
     "instructions": ["these are instructions for q 18"],
     "info": ["you can do 18"],
     "expectedHTML": "<p class=\"myOtherClass\"></p>"
   },
   {
-    "name": "question 19",
+    "subject": "Use the next rules to create the result HTML tree",
     "instructions": ["these are instructions for q 19"],
     "info": ["you can do 19"],
     "expectedHTML": "<p class=\"myThirdClass\"></p>"
   },
   {
-    "name": "question 20",
+    "subject": "Use the next rules to create the result HTML tree",
     "instructions": ["these are instructions for q 20"],
     "info": ["you can do 20"],
     "expectedHTML": "<p class=\"myFourthClass\"></p>"
   },
   {
-    "name": "question 21",
+    "subject": "Use the next rules to create the result HTML tree",
     "instructions": ["these are instructions for q 21"],
     "info": ["you can do 21"],
     "expectedHTML": "<p class=\"myClass\"></p>"
   },
   {
-    "name": "question 22",
+    "subject": "Use the next rules to create the result HTML tree",
     "instructions": ["these are instructions for q 22"],
     "info": ["you can do 22"],
     "expectedHTML": "<p class=\"myOtherClass\"></p>"
   },
   {
-    "name": "question 23",
+    "subject": "Use the next rules to create the result HTML tree",
     "instructions": ["these are instructions for q 23"],
     "info": ["you can do 23"],
     "expectedHTML": "<p class=\"myThirdClass\"></p>"
   },
   {
-    "name": "question 24",
+    "subject": "Use the next rules to create the result HTML tree",
     "instructions": ["these are instructions for q 24"],
     "info": ["you can do 24"],
     "expectedHTML": "<p class=\"myFourthClass\"></p>"

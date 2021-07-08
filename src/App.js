@@ -102,6 +102,7 @@ function App() {
                   reset={resetLocalAnswers}
                 />
                 <Instructions
+                  subject={answersData[currentLevel].subject}
                   instructions={answersData[currentLevel].instructions}
                   info={answersData[currentLevel].info}
                   greeting={
@@ -157,7 +158,7 @@ function App() {
                 </Editor>
                 <Editor key="expectedHTML" title="Expected HTML">
                   <CodeMirror
-                    value={answersData[currentLevel].expectedHTML}
+                    value={expand(answersData[currentLevel].expectedHTML)}
                     options={codeMirrorOptions}
                   />
                 </Editor>{" "}
