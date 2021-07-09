@@ -46,7 +46,6 @@ body {
 .app-container_play {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
   width: 50%;
 }
 

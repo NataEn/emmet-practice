@@ -163,14 +163,18 @@
   },
   {
     "subject": "Use the next rules to create the result HTML tree",
-    "instructions": ["these are instructions for q 23"],
+    "instructions": [
+      "Use all the previous roles to create the result HTML tree"
+    ],
     "info": ["you can do 23"],
     "expectedHTML": "<p class=\"myThirdClass\"></p>"
   },
   {
-    "subject": "Use the next rules to create the result HTML tree",
-    "instructions": ["these are instructions for q 24"],
-    "info": ["you can do 24"],
-    "expectedHTML": "<p class=\"myFourthClass\"></p>"
+    "subject": "Final Exercise!",
+    "instructions": [
+      "Use all the previous roles to create the result HTML tree"
+    ],
+    "info": [],
+    "expectedHTML": "div.container>(h1.greeting>{You Did It})+p>{Now you master Emmet abbreviations!}"
   }
 ]

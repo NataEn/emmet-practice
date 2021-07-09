@@ -4,7 +4,7 @@ const StyledInstructionsWrapper = styled.div`
   border-radius: ${(props) => props.theme.border.radius};
   grid-area: instructions;
   text-align: left;
-  margin-right: 2rem;
+  margin: 2rem;
 `;
 const StyledInfo = styled.ul``;
 const StyledSpan = styled.span`
@@ -27,20 +27,22 @@ export default function Instructions({
 }) {
   return (
     <StyledInstructionsWrapper>
+      <h3>{subject}</h3>
       {instructions.map((item, index) => (
         <StyledInstruction key={index}>{item}</StyledInstruction>
       ))}
-      <h3>{subject}</h3>
+
       <StyledInfo>
-        {info.map((item, index) => {
-          const splitInstruction = item.split(":");
-          return (
-            <li key={index}>
-              <StyledSpan>{splitInstruction[0]}</StyledSpan>:
-              {splitInstruction[1]}
-            </li>
-          );
-        })}
+        {info.length > 0 &&
+          info.map((item, index) => {
+            const splitInstruction = item.split(":");
+            return (
+              <li key={index}>
+                <StyledSpan>{splitInstruction[0]}</StyledSpan>:
+                {splitInstruction[1]}
+              </li>
+            );
+          })}
       </StyledInfo>
     </StyledInstructionsWrapper>
   );
