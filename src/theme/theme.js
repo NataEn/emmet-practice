@@ -19,7 +19,6 @@ const Theme = {
       small: "14px",
     },
   },
-
   border: {
     radius: "0.25rem",
   },

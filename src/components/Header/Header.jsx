@@ -7,7 +7,11 @@ const StyledHeader = styled.header`
   justify-content: space-between;
   align-items: flex-start;
   grid-area: header;
-  margin-right: 2rem;
+  margin: 1rem 2rem;
+
+  &@media (max-height: 700px) {
+    margin: 1rem;
+  }
 `;
 
 const StyledH1 = styled.h1`

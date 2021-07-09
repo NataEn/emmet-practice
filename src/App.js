@@ -43,7 +43,7 @@ function App() {
 
   useEffect(() => {
     const trimmer = (str) => str.replace(/\s*$/, "");
-    const newHTML = expand(trimmer(currentEmmet));
+    const newHTML = expandWithErrors(trimmer(currentEmmet));
     setInterpretedHTML(newHTML);
   }, [currentEmmet]);
 
@@ -70,6 +70,14 @@ function App() {
     }
   };
 
+  const expandWithErrors = (abbriviation) => {
+    try {
+      return expand(abbriviation);
+    } catch (err) {
+      return `error:${err.message}`;
+    }
+  };
+
   // clear the inputs in the
   const clearInputs = () => {
     setCurrentEmmet("");
@@ -88,9 +96,17 @@ function App() {
       alert("pls correct your answer");
     }
   };
+  const show = () => {
+    const body = document.querySelector("body");
+    if (body.clientHeight <= window.clientHeight) {
+      return "show";
+    } else {
+      return "no-show";
+    }
+  };
 
   return (
-    <div className="App">
+    <div className="App" onScroll={show}>
       <Router>
         <Switch>
           <Route path="/">
@@ -132,7 +148,7 @@ function App() {
                     setQuestion={setNextQuestion}
                   />
                 </Editor>
-                <p className="credit">
+                {/* <p className="credit_1">
                   EmmetPractice is created by NataEn •
                   <a href="https://github.com/NataEn" target="_blank">
                     GitHub
@@ -144,7 +160,7 @@ function App() {
                   >
                     LinkedIn
                   </a>
-                </p>
+                </p> */}
               </div>
               <div className="app-container_results">
                 <Editor key="resultHTML" title="Result HTML">
@@ -158,11 +174,26 @@ function App() {
                 </Editor>
                 <Editor key="expectedHTML" title="Expected HTML">
                   <CodeMirror
-                    value={expand(answersData[currentLevel].expectedHTML)}
+                    value={expandWithErrors(
+                      answersData[currentLevel].expectedHTML
+                    )}
                     options={codeMirrorOptions}
                   />
                 </Editor>{" "}
-              </div>
+              </div>{" "}
+              <p className={`credit`}>
+                EmmetPractice is created by NataEn •
+                <a href="https://github.com/NataEn" target="_blank">
+                  GitHub
+                </a>{" "}
+                •
+                <a
+                  href="https://www.linkedin.com/in/natalieen/"
+                  target="_blank"
+                >
+                  LinkedIn
+                </a>
+              </p>
             </div>
           </Route>
         </Switch>
