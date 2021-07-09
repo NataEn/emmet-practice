@@ -64,7 +64,10 @@ function App() {
   }, [isCorrectAnswer, currentEmmet, currentLevel]);
 
   const checkIfCorrect = () => {
-    if (interpretedHTML === answersData[currentLevel].expectedHTML) {
+    if (
+      interpretedHTML === answersData[currentLevel].expectedHTML ||
+      currentEmmet === answersData[currentLevel].expectedHTML
+    ) {
       setIsCorrectAnswer(true);
     } else {
     }

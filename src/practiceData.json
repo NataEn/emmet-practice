@@ -67,22 +67,27 @@
     "expectedHTML": "h1.main-heading>{Main Heading}>(h3.sub-heading>{Sub Heading $})*3"
   },
   {
-    "subject": "Use the next rules to create the result HTML tree",
-    "instructions": ["these are instructions for q 8"],
-    "info": ["you can do 8"],
-    "expectedHTML": "<p class=\"myOtherClass\"></p>"
+    "subject": "Auto generate HTML document",
+    "instructions": ["Use the ! sign to create the result HTML"],
+    "info": ["HTML document !: generates a new document"],
+    "expectedHTML": "!"
   },
   {
-    "subject": "Use the next rules to create the result HTML tree",
-    "instructions": ["these are instructions for q 9"],
-    "info": ["you can do 9"],
-    "expectedHTML": "<p class=\"myThirdClass\"></p>"
+    "subject": "Lorem Ipsum",
+    "instructions": [
+      "Often we'll need to test the appearance of HTML templates with real data, by using dummy text.",
+      " This is called the Lorem Ipsum text"
+    ],
+    "info": [
+      "lorem[number]:generates dummy text with specified number of words"
+    ],
+    "expectedHTML": "div.container>p>lorem4"
   },
   {
-    "subject": "Use the next rules to create the result HTML tree",
-    "instructions": ["these are instructions for q 10"],
-    "info": ["you can do 10"],
-    "expectedHTML": "<p class=\"myFourthClass\"></p>"
+    "subject": "Comments",
+    "instructions": ["Lets write some comments!"],
+    "info": ["c:generates a comment"],
+    "expectedHTML": "c"
   },
   {
     "subject": "Use the next rules to create the result HTML tree",
