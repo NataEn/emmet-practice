@@ -1,9 +1,12 @@
 [
   {
     "subject": "Naming, children and siblings ",
+    "greeting": [
+      "Welcome to Emmet Practice!",
+      " A playground where you practice emmet abbreviations to write super fast HTML code!",
+      "In the next few exercises you will learn the basic rules of emmet abbreviations."
+    ],
     "instructions": [
-      "Welcome to Emmet Practice, a playground where you practice emmet abbreviations to write super fast HTML code!",
-      "In the next few exercises you will learn the basic rules of emmet abbreviations.",
       "Edit the text in the Emmet editor to match with the expected HTML code. Use the following rules."
     ],
     "info": [

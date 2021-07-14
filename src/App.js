@@ -124,11 +124,7 @@ function App() {
                   subject={answersData[currentLevel].subject}
                   instructions={answersData[currentLevel].instructions}
                   info={answersData[currentLevel].info}
-                  greeting={
-                    currentLevel === 0
-                      ? answersData[currentLevel].greeting
-                      : null
-                  }
+                  greeting={answersData[currentLevel].greeting}
                 />
                 <Editor
                   key="emmetEditor"

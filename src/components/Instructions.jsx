@@ -17,6 +17,13 @@ const StyledInstruction = styled.p`
   margin: 0;
   line-height: 1.2;
 `;
+const StyledGreeting = styled.p`
+  margin: 0;
+  position: relative;
+  top: -1.5rem;
+  line-height: 1.5;
+  font-size: 1.3em;
+`;
 
 export default function Instructions({
   instructions,
@@ -27,6 +34,10 @@ export default function Instructions({
 }) {
   return (
     <StyledInstructionsWrapper>
+      {greeting &&
+        greeting.map((item, index) => (
+          <StyledGreeting key={index}>{item}</StyledGreeting>
+        ))}
       <h3>{subject}</h3>
       {instructions.map((item, index) => (
         <StyledInstruction key={index}>{item}</StyledInstruction>
