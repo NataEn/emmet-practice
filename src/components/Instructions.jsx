@@ -5,6 +5,7 @@ const StyledInstructionsWrapper = styled.div`
   grid-area: instructions;
   text-align: left;
   margin: 2rem;
+  margin-bottom: 0;
 `;
 const StyledInfo = styled.ul``;
 const StyledSpan = styled.span`
@@ -24,6 +25,12 @@ const StyledGreeting = styled.p`
   line-height: 1.5;
   font-size: 1.3em;
 `;
+const StyledH2 = styled.h2`
+  font-family: "Fredoka One", cursive;
+  text-align: left;
+  margin-top: 0;
+  line-height: 25px;
+`;
 
 export default function Instructions({
   instructions,
@@ -38,7 +45,7 @@ export default function Instructions({
         greeting.map((item, index) => (
           <StyledGreeting key={index}>{item}</StyledGreeting>
         ))}
-      <h3>{subject}</h3>
+      <StyledH2>{subject}</StyledH2>
       {instructions.map((item, index) => (
         <StyledInstruction key={index}>{item}</StyledInstruction>
       ))}

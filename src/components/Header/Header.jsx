@@ -15,7 +15,7 @@ const StyledHeader = styled.header`
 `;
 
 const StyledH1 = styled.h1`
-  font-size: 2rem;
+  font-size: 2.7rem;
   font-weight: 800;
   font-family: "Fredoka One", cursive;
   text-align: left;
