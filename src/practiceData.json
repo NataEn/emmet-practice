@@ -1,6 +1,6 @@
 [
   {
-    "subject": "Naming, children and siblings ",
+    "subject": "Naming",
     "greeting": [
       "Welcome to Emmet Practice!",
       " A playground where you practice emmet abbreviations to write super fast HTML code!",
@@ -9,9 +9,33 @@
     "instructions": [
       "Edit the text in the Emmet editor to match with the expected HTML code. Use the following rules."
     ],
+    "info": ["No naming restrictions: use any string to create html elements."],
+    "expectedHTML": "myTag"
+  },
+  {
+    "subject": "Child Elements",
+    "instructions": [
+      "Edit the text in the Emmet editor to match with the expected HTML code. Use the following rules."
+    ],
+    "info": ["Child >: This operator specifies a child element"],
+    "expectedHTML": "section>div>div>p"
+  },
+  {
+    "subject": "Children and Siblings a",
+    "instructions": [
+      "Edit the text in the Emmet editor to match with the expected HTML code. Use the following rules."
+    ],
     "info": [
-      "No naming restrictions: use any tag name to create html elements.",
-      "Child >: This operator specifies a childe element",
+      "Child >: This operator specifies a child element",
+      "Sibling +: specifies sibling elements"
+    ],
+    "expectedHTML": "div>p+p"
+  },
+  {
+    "subject": "Children and Siblings b",
+    "instructions": ["Combine the next rules to create the result HTML tree"],
+    "info": [
+      "Child >: This operator specifies a child element",
       "Multiplication *: This operator defines how many times an adjacent element should be outputted"
     ],
     "expectedHTML": "div>ul>li*3"
@@ -26,15 +50,42 @@
     "expectedHTML": "div>(div>(img+p))*2"
   },
   {
-    "subject": "Attributes",
+    "subject": "Create Sibling and Climb up",
+    "instructions": [
+      "Sometimes you would like to create a more complex document tree.",
+      "Use the climb up operator to add sibling after a complex container element."
+    ],
+    "info": [
+      "Sibling +: specifies sibling elements",
+      "Climb up ^: add a sibling element one level up"
+    ],
+    "expectedHTML": "div>img+p^div"
+  },
+
+  {
+    "subject": "Attributes - id",
     "instructions": [
       "As you saw in the last exercise, some attributes are auto-generated.",
       "We can also use Attribute operators to define other attributes and their values as needed. ",
-      "Most common attributes are the id and css class attributes."
+      "A common attribute is the id."
+    ],
+    "info": ["#idNAme: The [#] notation allows specifying an id"],
+    "expectedHTML": "div#container>h2#container-header+p#container-info+footer#container-footer"
+  },
+  {
+    "subject": "Attributes - class",
+    "instructions": ["We can also use Attribute operators to define classes"],
+    "info": [".classNAme: The [.] notation allows specifying a class"],
+    "expectedHTML": "div.container>h2.container-header+p.container-info+footer.container-footer"
+  },
+  {
+    "subject": "Attributes - id and class",
+    "instructions": [
+      "Now lets combine our knowledge on specifying ids and class"
     ],
     "info": [
       "#idNAme: The [#] notation allows specifying an id",
-      ".classNAme: The [.] notation allows specifying a class"
+      ".classNAme: The [.] notation allows specifying a classes"
     ],
     "expectedHTML": "div#app>header.app-header+section.app-main+footer.app-footer"
   },
@@ -50,17 +101,26 @@
   },
   {
     "subject": "Multiplication and Numbering",
-    "instructions": ["Use the $ operator to number the amount of li elements."],
+    "instructions": [
+      "Use the $ operator to number the amount of li elements.",
+      "Use the * operator to create several li elements."
+    ],
     "info": [
       "Item numbering $: The $ operator can number elements!",
-      "$: adds zerows before a number"
+      "Multiplication *: This operator defines how many times an adjacent element should be outputted"
     ],
     "expectedHTML": "ul.shopping-list>li[data-amount=$]*5"
   },
   {
     "subject": "Multiplication and Numbering",
-    "instructions": ["Use the $ operator to place zeroes before a number"],
-    "info": ["several $: add zeros before a number"],
+    "instructions": [
+      "Use the $ operator to place zeroes before a number.",
+      "Use the * operator to create several li elements."
+    ],
+    "info": [
+      "several $: add zeros before a number",
+      "Multiplication *: This operator defines how many times an adjacent element should be outputted"
+    ],
     "expectedHTML": "ul.shopping-list>li[data-amount=$$$]*5"
   },
   {
@@ -91,86 +151,6 @@
     "instructions": ["Lets write some comments!"],
     "info": ["c:generates a comment"],
     "expectedHTML": "c"
-  },
-  {
-    "subject": "Use the next rules to create the result HTML tree",
-    "instructions": ["these are instructions for q 11"],
-    "info": ["you can do 11"],
-    "expectedHTML": "<p class=\"myClass\"></p>"
-  },
-  {
-    "subject": "Use the next rules to create the result HTML tree",
-    "instructions": ["these are instructions for q 12"],
-    "info": ["you can do 12"],
-    "expectedHTML": "<p class=\"myOtherClass\"></p>"
-  },
-  {
-    "subject": "Use the next rules to create the result HTML tree",
-    "instructions": ["these are instructions for q 13"],
-    "info": ["you can do 13"],
-    "expectedHTML": "<p class=\"myThirdClass\"></p>"
-  },
-  {
-    "subject": "Use the next rules to create the result HTML tree",
-    "instructions": ["these are instructions for q 14"],
-    "info": ["you can do 14"],
-    "expectedHTML": "<p class=\"myFourthClass\"></p>"
-  },
-  {
-    "subject": "Use the next rules to create the result HTML tree",
-    "instructions": ["these are instructions for q 15"],
-    "info": ["you can do 15"],
-    "expectedHTML": "<p class=\"myOtherClass\"></p>"
-  },
-  {
-    "subject": "Use the next rules to create the result HTML tree",
-    "instructions": ["these are instructions for q 16"],
-    "info": ["you can do 6"],
-    "expectedHTML": "<p class=\"myThirdClass\"></p>"
-  },
-  {
-    "subject": "Use the next rules to create the result HTML tree",
-    "instructions": ["these are instructions for q 17"],
-    "info": ["you can do 17"],
-    "expectedHTML": "<p class=\"myFourthClass\"></p>"
-  },
-  {
-    "subject": "Use the next rules to create the result HTML tree",
-    "instructions": ["these are instructions for q 18"],
-    "info": ["you can do 18"],
-    "expectedHTML": "<p class=\"myOtherClass\"></p>"
-  },
-  {
-    "subject": "Use the next rules to create the result HTML tree",
-    "instructions": ["these are instructions for q 19"],
-    "info": ["you can do 19"],
-    "expectedHTML": "<p class=\"myThirdClass\"></p>"
-  },
-  {
-    "subject": "Use the next rules to create the result HTML tree",
-    "instructions": ["these are instructions for q 20"],
-    "info": ["you can do 20"],
-    "expectedHTML": "<p class=\"myFourthClass\"></p>"
-  },
-  {
-    "subject": "Use the next rules to create the result HTML tree",
-    "instructions": ["these are instructions for q 21"],
-    "info": ["you can do 21"],
-    "expectedHTML": "<p class=\"myClass\"></p>"
-  },
-  {
-    "subject": "Use the next rules to create the result HTML tree",
-    "instructions": ["these are instructions for q 22"],
-    "info": ["you can do 22"],
-    "expectedHTML": "<p class=\"myOtherClass\"></p>"
-  },
-  {
-    "subject": "Use the next rules to create the result HTML tree",
-    "instructions": [
-      "Use all the previous roles to create the result HTML tree"
-    ],
-    "info": ["you can do 23"],
-    "expectedHTML": "<p class=\"myThirdClass\"></p>"
   },
   {
     "subject": "Final Exercise!",

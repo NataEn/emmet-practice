@@ -3,7 +3,12 @@ import "./ExercisesNav.css";
 import Arrow from "../Arrow/Arrow";
 import NavDropdown from "../NavDropdown/NavDropdown.jsx";
 
-export default function ExercisesNav({ currentLevel, setLevel, reset }) {
+export default function ExercisesNav({
+  numberOfLevels,
+  currentLevel,
+  setLevel,
+  reset,
+}) {
   const [showTooltip, setShowTooltip] = useState(false);
   return (
     <div className="header_exercises">
@@ -14,7 +19,7 @@ export default function ExercisesNav({ currentLevel, setLevel, reset }) {
         hover={true}
         onClick={() => {
           console.log("prev level");
-          if (currentLevel >= 1 && currentLevel <= 23)
+          if (currentLevel >= 1 && currentLevel <= numberOfLevels - 1)
             setLevel(currentLevel - 1);
         }}
       />
@@ -23,7 +28,7 @@ export default function ExercisesNav({ currentLevel, setLevel, reset }) {
         onClick={() => setShowTooltip(!showTooltip)}
       >
         Level
-        <span>{currentLevel + 1}</span> of 24
+        <span>{currentLevel + 1}</span> of {numberOfLevels}
         <Arrow size={"3px"} direction={"down"} />
       </div>
       <Arrow
@@ -33,8 +38,7 @@ export default function ExercisesNav({ currentLevel, setLevel, reset }) {
         hover={true}
         onClick={() => {
           console.log("next level");
-
-          if (currentLevel >= 0 && currentLevel <= 22)
+          if (currentLevel >= 0 && currentLevel <= numberOfLevels - 2)
             setLevel(currentLevel + 1);
         }}
       />
@@ -43,6 +47,7 @@ export default function ExercisesNav({ currentLevel, setLevel, reset }) {
         currentLevel={currentLevel}
         setLevel={setLevel}
         reset={reset}
+        numberOfLevels={numberOfLevels}
       />
     </div>
   );

@@ -6,9 +6,14 @@ import {
   StyledButton,
 } from "./StyledNavDropdown";
 
-const NavDropdown = ({ show, currentLevel, setLevel, reset }) => {
-  const levels = 24;
-  const levelsArr = new Array(levels).fill("");
+const NavDropdown = ({
+  numberOfLevels,
+  show,
+  currentLevel,
+  setLevel,
+  reset,
+}) => {
+  const levelsArr = new Array(numberOfLevels).fill("");
   return (
     <StyledTooltipWrapper show={show}>
       <StyledLevels>

@@ -24,11 +24,21 @@ const StyledH1 = styled.h1`
   line-height: 25px;
 `;
 
-export default function Header({ setLevel, currentLevel, reset }) {
+export default function Header({
+  setLevel,
+  currentLevel,
+  reset,
+  numberOfLevels,
+}) {
   return (
     <StyledHeader>
       <StyledH1>Emmet practice</StyledH1>
-      <Nav setLevel={setLevel} currentLevel={currentLevel} reset={reset} />
+      <Nav
+        setLevel={setLevel}
+        currentLevel={currentLevel}
+        reset={reset}
+        numberOfLevels={numberOfLevels}
+      />
     </StyledHeader>
   );
 }

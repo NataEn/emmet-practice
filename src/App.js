@@ -33,6 +33,7 @@ function App() {
   );
 
   const answersData = Data;
+  const numberOfLevels = answersData.length;
 
   /** how to extract emmet from text
   const source = "Hello world ul.tabs>li";
@@ -107,7 +108,6 @@ function App() {
       return "no-show";
     }
   };
-
   return (
     <div className="App" onScroll={show}>
       <Router>
@@ -119,6 +119,7 @@ function App() {
                   setLevel={setCurrentLevel}
                   currentLevel={currentLevel}
                   reset={resetLocalAnswers}
+                  numberOfLevels={numberOfLevels}
                 />
                 <Instructions
                   subject={answersData[currentLevel].subject}
