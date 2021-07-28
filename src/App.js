@@ -21,7 +21,11 @@ const codeMirrorOptions = {
 };
 
 function App() {
-  const [localAnswers, setLocalAnswers, resetLocalAnswers] = useLocalStorage();
+  const answersData = Data;
+  const numberOfLevels = answersData.length;
+
+  const [localAnswers, setLocalAnswers, resetLocalAnswers] =
+    useLocalStorage(numberOfLevels);
   const [currentLevel, setCurrentLevel] = useState(0);
   const [currentEmmet, setCurrentEmmet] = useState("");
   const [interpretedHTML, setInterpretedHTML] = useState("");
@@ -32,9 +36,6 @@ function App() {
       : false
   );
 
-  const answersData = Data;
-  const numberOfLevels = answersData.length;
-
   /** how to extract emmet from text
   const source = "Hello world ul.tabs>li";
   const dataEmmet = extract(source, 22); // { abbreviation: 'ul.tabs>li' }
@@ -42,27 +43,38 @@ function App() {
   console.log(expand(dataEmmet.abbreviation)); // <ul class="tabs"><li></li></ul>
    */
 
+  /**
+   * when user types an answer, then that answer gets interpreted to html and placed in the html editor
+   */
   useEffect(() => {
     const trimmer = (str) => str.replace(/\s*$/, "");
     const newHTML = expandWithErrors(trimmer(currentEmmet));
     setInterpretedHTML(newHTML);
   }, [currentEmmet]);
 
+  /**
+   * when going from level to level check first if an answer was saved in local storage.
+   * update if the current state of the answer is correct
+   */
   useEffect(() => {
-    const newEmmet = localAnswers[currentLevel].answer
+    const localEmmet = localAnswers[currentLevel].answer
       ? localAnswers[currentLevel].answer
       : "";
-    setCurrentEmmet(newEmmet);
-    setIsCorrectAnswer(() => localAnswers[currentLevel].answer || false);
-  }, [currentLevel]);
+    setCurrentEmmet(localEmmet);
+    setIsCorrectAnswer(
+      () =>
+        localAnswers[currentLevel].answer === answersData[currentLevel].answer
+    );
+  });
 
   useEffect(() => {
     const newLocalStorage = [...localAnswers];
-    newLocalStorage[currentLevel].isCorrect = isCorrectAnswer;
+    newLocalStorage[currentLevel].isCorrect =
+      localAnswers[currentLevel].answer === answersData[currentLevel].answer;
     newLocalStorage[currentLevel].answer = currentEmmet;
 
     setLocalAnswers(newLocalStorage);
-  }, [isCorrectAnswer, currentEmmet, currentLevel]);
+  }, [isCorrectAnswer, currentEmmet, currentLevel, answersData]);
 
   const checkIfCorrect = () => {
     if (
@@ -192,6 +204,13 @@ function App() {
                   target="_blank"
                 >
                   LinkedIn
+                </a>
+                •
+                <a
+                  href="#"
+                  // target="_blank"
+                >
+                  Emmet Cheat-Sheet
                 </a>
               </p>
             </div>
