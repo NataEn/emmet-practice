@@ -54,7 +54,7 @@ function App() {
 
   /**
    * when going from level to level check first if an answer was saved in local storage.
-   * update if the current state of the answer is correct
+   * update "isCurrect" if the current answer is correct
    */
   useEffect(() => {
     const localEmmet = localAnswers[currentLevel].answer
@@ -65,16 +65,15 @@ function App() {
       () =>
         localAnswers[currentLevel].answer === answersData[currentLevel].answer
     );
-  });
+  }, []);
 
   useEffect(() => {
     const newLocalStorage = [...localAnswers];
     newLocalStorage[currentLevel].isCorrect =
       localAnswers[currentLevel].answer === answersData[currentLevel].answer;
     newLocalStorage[currentLevel].answer = currentEmmet;
-
     setLocalAnswers(newLocalStorage);
-  }, [isCorrectAnswer, currentEmmet, currentLevel, answersData]);
+  }, [isCorrectAnswer, currentEmmet]);
 
   const checkIfCorrect = () => {
     if (
