@@ -19,9 +19,7 @@ export default function useLocalStorage(numberOfLevels) {
   });
 
   useEffect(() => {
-    console.log("useEffect on localStorage hook", storedAnswers);
     window.localStorage.setItem("emmetAnswers", JSON.stringify(storedAnswers));
-    console.log("useEffect on localStorage hook", storedAnswers);
   }, [storedAnswers]);
 
   const setStoredAnswers = (newAnswers) => {
@@ -35,15 +33,6 @@ export default function useLocalStorage(numberOfLevels) {
     );
     return window.localStorage.getItem("emmetAnswers");
   };
-
-  // const setStoredAnswers = (index, isCorrect, answer) => {
-  //   setAnswers(() => {
-  //     const newArr = [...storedAnswers];
-  //     newArr[index].isCorrect = isCorrect;
-  //     newArr[index].answer = answer;
-  //     window.localStorage.setItem("emmetAnswers", JSON.stringify(newArr));
-  //     return newArr;
-  //   });
 
   return [storedAnswers, setStoredAnswers, resetStoredAnswers];
 }

@@ -28,8 +28,11 @@ function App() {
     useLocalStorage(numberOfLevels);
 
   const [currentLevel, setCurrentLevel] = useState(0);
-  const [currentEmmet, setCurrentEmmet] = useState("");
+  const [currentEmmet, setCurrentEmmet] = useState(
+    () => localAnswers[currentLevel].answer
+  );
   const [interpretedHTML, setInterpretedHTML] = useState("");
+  const allCorrect = true;
 
   const [isCorrectAnswer, setIsCorrectAnswer] = useState(
     () => localAnswers[currentLevel].isCorrect
@@ -74,24 +77,6 @@ function App() {
     setCurrentEmmet(localAnswers[currentLevel].answer);
   }, [currentLevel]);
 
-  // useEffect(() => {
-  //   const newLocalStorage = [...localAnswers];
-  //   newLocalStorage[currentLevel].isCorrect =
-  //     localAnswers[currentLevel].answer === answersData[currentLevel].answer;
-  //   newLocalStorage[currentLevel].answer = currentEmmet;
-  //   setLocalAnswers(newLocalStorage);
-  // }, [isCorrectAnswer, currentEmmet]);
-
-  // const checkIfCorrect = () => {
-  //   if (
-  //     interpretedHTML === answersData[currentLevel].expectedHTML ||
-  //     currentEmmet === answersData[currentLevel].expectedHTML
-  //   ) {
-  //     setIsCorrectAnswer(true);
-  //   } else {
-  //   }
-  // };
-
   const expandWithErrors = (abbriviation) => {
     try {
       return expand(abbriviation);
@@ -111,8 +96,8 @@ function App() {
       if (currentLevel >= 0 && currentLevel <= 22) {
         setCurrentLevel(currentLevel + 1);
         clearInputs();
-      } else if (currentLevel === 23) {
-        console.log("all done");
+      } else if (currentLevel === numberOfLevels && allCorrect) {
+        alert("all done");
       }
     } else {
       alert("pls correct your answer");
@@ -185,9 +170,9 @@ function App() {
                   <CodeMirror
                     value={interpretedHTML}
                     options={codeMirrorOptions}
-                    onChange={(editor, data, value) => {
-                      console.log("result html changed");
-                    }}
+                    // onChange={(editor, data, value) => {
+                    //   console.log("result html changed");
+                    // }}
                   />
                 </Editor>
                 <Editor key="expectedHTML" title="Expected HTML">
