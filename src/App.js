@@ -26,14 +26,13 @@ function App() {
 
   const [localAnswers, setLocalAnswers, resetLocalAnswers] =
     useLocalStorage(numberOfLevels);
+
   const [currentLevel, setCurrentLevel] = useState(0);
   const [currentEmmet, setCurrentEmmet] = useState("");
   const [interpretedHTML, setInterpretedHTML] = useState("");
 
-  const [isCorrectAnswer, setIsCorrectAnswer] = useState(() =>
-    localAnswers[currentLevel].isCorrect
-      ? localAnswers[currentLevel].isCorrect
-      : false
+  const [isCorrectAnswer, setIsCorrectAnswer] = useState(
+    () => localAnswers[currentLevel].isCorrect
   );
 
   /** how to extract emmet from text
@@ -45,45 +44,53 @@ function App() {
 
   /**
    * when user types an answer, then that answer gets interpreted to html and placed in the html editor
+   * answer is checked if ut is correct
+   * And stored in the localStorage
    */
   useEffect(() => {
+    //update the html editor
     const trimmer = (str) => str.replace(/\s*$/, "");
     const newHTML = expandWithErrors(trimmer(currentEmmet));
     setInterpretedHTML(newHTML);
+
+    //check if answer is correct
+    const isCorrectInCurrentLevel =
+      currentEmmet === answersData[currentLevel].expectedHTML;
+    setIsCorrectAnswer(isCorrectInCurrentLevel);
+
+    //update localStorage array
+    const newLocalAnswers = [...localAnswers];
+    newLocalAnswers[currentLevel].answer = currentEmmet;
+    newLocalAnswers[currentLevel].isCorrect = isCorrectInCurrentLevel;
+    setLocalAnswers(newLocalAnswers);
   }, [currentEmmet]);
 
   /**
    * when going from level to level check first if an answer was saved in local storage.
-   * update "isCurrect" if the current answer is correct
+   * then update: isCorrect, currentEmmet (interpretedHTML is changed if currentEmmet is changed)
    */
   useEffect(() => {
-    const localEmmet = localAnswers[currentLevel].answer
-      ? localAnswers[currentLevel].answer
-      : "";
-    setCurrentEmmet(localEmmet);
-    setIsCorrectAnswer(
-      () =>
-        localAnswers[currentLevel].answer === answersData[currentLevel].answer
-    );
-  }, []);
+    setIsCorrectAnswer(localAnswers[currentLevel].isCorrect);
+    setCurrentEmmet(localAnswers[currentLevel].answer);
+  }, [currentLevel]);
 
-  useEffect(() => {
-    const newLocalStorage = [...localAnswers];
-    newLocalStorage[currentLevel].isCorrect =
-      localAnswers[currentLevel].answer === answersData[currentLevel].answer;
-    newLocalStorage[currentLevel].answer = currentEmmet;
-    setLocalAnswers(newLocalStorage);
-  }, [isCorrectAnswer, currentEmmet]);
+  // useEffect(() => {
+  //   const newLocalStorage = [...localAnswers];
+  //   newLocalStorage[currentLevel].isCorrect =
+  //     localAnswers[currentLevel].answer === answersData[currentLevel].answer;
+  //   newLocalStorage[currentLevel].answer = currentEmmet;
+  //   setLocalAnswers(newLocalStorage);
+  // }, [isCorrectAnswer, currentEmmet]);
 
-  const checkIfCorrect = () => {
-    if (
-      interpretedHTML === answersData[currentLevel].expectedHTML ||
-      currentEmmet === answersData[currentLevel].expectedHTML
-    ) {
-      setIsCorrectAnswer(true);
-    } else {
-    }
-  };
+  // const checkIfCorrect = () => {
+  //   if (
+  //     interpretedHTML === answersData[currentLevel].expectedHTML ||
+  //     currentEmmet === answersData[currentLevel].expectedHTML
+  //   ) {
+  //     setIsCorrectAnswer(true);
+  //   } else {
+  //   }
+  // };
 
   const expandWithErrors = (abbriviation) => {
     try {
@@ -179,7 +186,7 @@ function App() {
                     value={interpretedHTML}
                     options={codeMirrorOptions}
                     onChange={(editor, data, value) => {
-                      checkIfCorrect();
+                      console.log("result html changed");
                     }}
                   />
                 </Editor>
