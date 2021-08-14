@@ -26,13 +26,5 @@ export default function useLocalStorage(numberOfLevels) {
     setAnswers(newAnswers);
   };
 
-  const resetStoredAnswers = () => {
-    window.localStorage.setItem(
-      "emmetAnswers",
-      JSON.stringify(cleanAnswersArr)
-    );
-    return window.localStorage.getItem("emmetAnswers");
-  };
-
-  return [storedAnswers, setStoredAnswers, resetStoredAnswers];
+  return [storedAnswers, setStoredAnswers];
 }

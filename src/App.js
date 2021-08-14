@@ -24,8 +24,7 @@ function App() {
   const answersData = Data;
   const numberOfLevels = answersData.length;
 
-  const [localAnswers, setLocalAnswers, resetLocalAnswers] =
-    useLocalStorage(numberOfLevels);
+  const [localAnswers, setLocalAnswers] = useLocalStorage(numberOfLevels);
 
   const [currentLevel, setCurrentLevel] = useState(0);
   const [currentEmmet, setCurrentEmmet] = useState(
@@ -84,7 +83,15 @@ function App() {
       return `error:${err.message}`;
     }
   };
-
+  //reset all answers
+  const resetAnswers = () => {
+    const emptyAnswers = new Array(numberOfLevels).fill({
+      isCorrect: false,
+      answer: "",
+    });
+    setLocalAnswers(emptyAnswers);
+    setCurrentEmmet("");
+  };
   // clear the inputs in the
   const clearInputs = () => {
     setCurrentEmmet("");
@@ -121,7 +128,7 @@ function App() {
                 <Header
                   setLevel={setCurrentLevel}
                   currentLevel={currentLevel}
-                  reset={resetLocalAnswers}
+                  reset={resetAnswers}
                   numberOfLevels={numberOfLevels}
                 />
                 <Instructions
