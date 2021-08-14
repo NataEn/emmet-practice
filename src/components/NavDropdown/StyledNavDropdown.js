@@ -52,9 +52,15 @@ export const StyledLevel = styled.span`
 `;
 
 export const StyledButton = styled.button`
-  margin: ${(props) => props.theme.margin.regular};
+  margin: ${(props) => props.theme.margin.small};
   color: white;
   background-color: transparent;
   border: none;
   cursor: pointer;
+  border: 2px solid transparent;
+  border-radius: ${(props) => props.theme.border.radius};
+  padding: ${(props) => props.theme.padding.small};
+  &:hover {
+    border: 2px solid ${(props) => props.theme.colors.primaryLight};
+  }
 `;
