@@ -158,6 +158,6 @@
       "Use all the previous roles to create the result HTML tree"
     ],
     "info": [],
-    "expectedHTML": "div.container>(h1.greeting>{You Did It})+p>{Now you master Emmet abbreviations!}"
+    "expectedHTML": "div.container>h1.greeting{You Did it}+p{Now you master Emmet abbreviations!}"
   }
 ]

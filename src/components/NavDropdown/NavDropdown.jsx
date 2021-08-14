@@ -12,6 +12,7 @@ const NavDropdown = ({
   currentLevel,
   setLevel,
   reset,
+  answers,
 }) => {
   const levelsArr = new Array(numberOfLevels).fill("");
   return (
@@ -19,6 +20,7 @@ const NavDropdown = ({
       <StyledLevels>
         {levelsArr.map((level, index) => (
           <StyledLevel
+            correct={answers && answers[index].isCorrect}
             key={index}
             className={currentLevel === index ? "selected" : ""}
             onClick={() => setLevel(index)}

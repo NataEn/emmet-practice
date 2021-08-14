@@ -8,6 +8,7 @@ export default function ExercisesNav({
   currentLevel,
   setLevel,
   reset,
+  answers,
 }) {
   const [showTooltip, setShowTooltip] = useState(false);
   return (
@@ -48,6 +49,7 @@ export default function ExercisesNav({
         setLevel={setLevel}
         reset={reset}
         numberOfLevels={numberOfLevels}
+        answers={answers}
       />
     </div>
   );

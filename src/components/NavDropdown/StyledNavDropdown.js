@@ -37,7 +37,11 @@ export const StyledLevel = styled.span`
   font-weight: 600;
   height: 1.6rem;
   width: 1.6rem;
-  border: 2px solid ${(props) => props.theme.colors.primaryDark};
+  border: 2px solid
+    ${(props) =>
+      props.correct
+        ? props.theme.colors.success
+        : props.theme.colors.primaryDark};
   border-radius: 50%;
   text-align: center;
   line-height: 25px;
@@ -47,7 +51,18 @@ export const StyledLevel = styled.span`
   cursor: pointer;
 
   &.selected {
-    border: 2px solid ${(props) => props.theme.colors.primaryLight};
+    border: 2px solid
+      ${(props) =>
+        props.correct
+          ? props.theme.colors.successDark
+          : props.theme.colors.primaryLight};
+    background-color: ${(props) =>
+      props.correct
+        ? props.theme.colors.success
+        : props.theme.colors.primaryDark};
+    color: ${(props) =>
+      props.correct ? props.theme.colors.primaryDark : "white"};
+    font-weight: ${(props) => (props.correct ? 800 : "regular")};
   }
 `;
 

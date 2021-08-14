@@ -46,6 +46,7 @@ const Theme = {
     secondaryDark: "#6e5c5c",
     secondaryDarker: "#554747",
     success: "#69da6b",
+    successDark: "#4fa64d",
     danger: "#d11606",
   },
   fonts: {

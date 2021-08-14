@@ -31,7 +31,7 @@ function App() {
     () => localAnswers[currentLevel].answer
   );
   const [interpretedHTML, setInterpretedHTML] = useState("");
-  const allCorrect = true;
+  let allCorrect = false;
 
   const [isCorrectAnswer, setIsCorrectAnswer] = useState(
     () => localAnswers[currentLevel].isCorrect
@@ -99,15 +99,17 @@ function App() {
   };
 
   const setNextQuestion = () => {
-    if (isCorrectAnswer) {
-      if (currentLevel >= 0 && currentLevel <= 22) {
-        setCurrentLevel(currentLevel + 1);
-        clearInputs();
-      } else if (currentLevel === numberOfLevels && allCorrect) {
-        alert("all done");
+    if (currentLevel >= 0 && currentLevel <= numberOfLevels - 2) {
+      setCurrentLevel(currentLevel + 1);
+      clearInputs();
+    } else if (currentLevel === numberOfLevels - 1 && allCorrect) {
+      for (let answer in localAnswers) {
+        if (!answer.isCorrect) {
+          return;
+        } else {
+          alert("all done");
+        }
       }
-    } else {
-      alert("pls correct your answer");
     }
   };
   const show = () => {
@@ -130,6 +132,7 @@ function App() {
                   currentLevel={currentLevel}
                   reset={resetAnswers}
                   numberOfLevels={numberOfLevels}
+                  answers={localAnswers}
                 />
                 <Instructions
                   subject={answersData[currentLevel].subject}

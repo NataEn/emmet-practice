@@ -29,6 +29,7 @@ export default function Header({
   currentLevel,
   reset,
   numberOfLevels,
+  answers,
 }) {
   return (
     <StyledHeader>
@@ -38,6 +39,7 @@ export default function Header({
         currentLevel={currentLevel}
         reset={reset}
         numberOfLevels={numberOfLevels}
+        answers={answers}
       />
     </StyledHeader>
   );
