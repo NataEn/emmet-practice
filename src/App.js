@@ -5,6 +5,7 @@ import Editor from "./components/Editor/Editor";
 import Header from "./components/Header/Header";
 import Data from "./practiceData.json";
 import NextBtn from "./components/NextBtn/NextBtn";
+import CheatSheet from "./components/CheatSheet/CheatSheet";
 
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
@@ -124,7 +125,7 @@ function App() {
     <div className="App" onScroll={show}>
       <Router>
         <Switch>
-          <Route path="/">
+          <Route exact path="/">
             <div className="app-container">
               <div className="app-container_play">
                 <Header
@@ -208,13 +209,33 @@ function App() {
                 </a>
                 •
                 <a
-                  href="#"
+                  href="/cheatsheet"
                   // target="_blank"
                 >
                   Emmet Cheat-Sheet
                 </a>
               </p>
             </div>
+          </Route>
+          <Route exact path="/cheatsheet">
+            <CheatSheet />
+            <p className={`credit`}>
+              EmmetPractice is created by NataEn •
+              <a href="https://github.com/NataEn" target="_blank">
+                GitHub
+              </a>{" "}
+              •
+              <a href="https://www.linkedin.com/in/natalieen/" target="_blank">
+                LinkedIn
+              </a>
+              •
+              <a
+                href="/"
+                // target="_blank"
+              >
+                Emmet practice
+              </a>
+            </p>
           </Route>
         </Switch>
       </Router>
