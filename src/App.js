@@ -93,7 +93,7 @@ function App() {
     setLocalAnswers(emptyAnswers);
     setCurrentEmmet("");
   };
-  // clear the inputs in the
+  // clear the inputs in the editors
   const clearInputs = () => {
     setCurrentEmmet("");
     setInterpretedHTML("");
@@ -162,28 +162,12 @@ function App() {
                     setQuestion={setNextQuestion}
                   />
                 </Editor>
-                {/* <p className="credit_1">
-                  EmmetPractice is created by NataEn •
-                  <a href="https://github.com/NataEn" target="_blank">
-                    GitHub
-                  </a>{" "}
-                  •
-                  <a
-                    href="https://www.linkedin.com/in/natalieen/"
-                    target="_blank"
-                  >
-                    LinkedIn
-                  </a>
-                </p> */}
               </div>
               <div className="app-container_results">
                 <Editor key="resultHTML" title="Result HTML">
                   <CodeMirror
                     value={interpretedHTML}
                     options={codeMirrorOptions}
-                    // onChange={(editor, data, value) => {
-                    //   console.log("result html changed");
-                    // }}
                   />
                 </Editor>
                 <Editor key="expectedHTML" title="Expected HTML">
@@ -228,13 +212,7 @@ function App() {
               <a href="https://www.linkedin.com/in/natalieen/" target="_blank">
                 LinkedIn
               </a>
-              •
-              <a
-                href="/"
-                // target="_blank"
-              >
-                Emmet practice
-              </a>
+              •<a href="/">Emmet practice</a>
             </p>
           </Route>
         </Switch>
