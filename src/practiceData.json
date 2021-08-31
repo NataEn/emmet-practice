@@ -1,163 +1,157 @@
-[
-  {
-    "subject": "Naming",
-    "greeting": [
-      "Welcome to Emmet Practice!",
-      " A playground where you practice emmet abbreviations to write super fast HTML code!",
-      "In the next few exercises you will learn the basic rules of emmet abbreviations."
-    ],
-    "instructions": [
-      "Edit the text in the Emmet editor to match with the expected HTML code. Use the following rules."
-    ],
-    "info": ["No naming restrictions: use any string to create html elements."],
-    "expectedHTML": "myTag"
-  },
-  {
-    "subject": "Child Elements",
-    "instructions": [
-      "Edit the text in the Emmet editor to match with the expected HTML code. Use the following rules."
-    ],
-    "info": ["Child >: This operator specifies a child element"],
-    "expectedHTML": "section>div>div>p"
-  },
-  {
-    "subject": "Children and Siblings a",
-    "instructions": [
-      "Edit the text in the Emmet editor to match with the expected HTML code. Use the following rules."
-    ],
-    "info": [
-      "Child >: This operator specifies a child element",
-      "Sibling +: specifies sibling elements"
-    ],
-    "expectedHTML": "div>p+p"
-  },
-  {
-    "subject": "Children and Siblings b",
-    "instructions": ["Combine the next rules to create the result HTML tree"],
-    "info": [
-      "Child >: This operator specifies a child element",
-      "Multiplication *: This operator defines how many times an adjacent element should be outputted"
-    ],
-    "expectedHTML": "div>ul>li*3"
-  },
-  {
-    "subject": "Sibling and Grouping Operators",
-    "instructions": ["Combine the next rules to create the result HTML tree"],
-    "info": [
-      "Sibling +: specifies sibling elements",
-      "Grouping (): groups elements together, as mathematical parenthesis"
-    ],
-    "expectedHTML": "div>(div>(img+p))*2"
-  },
-  {
-    "subject": "Create Sibling and Climb up",
-    "instructions": [
-      "Sometimes you would like to create a more complex document tree.",
-      "Use the climb up operator to add sibling after a complex container element."
-    ],
-    "info": [
-      "Sibling +: specifies sibling elements",
-      "Climb up ^: add a sibling element one level up"
-    ],
-    "expectedHTML": "div>img+p^div"
-  },
+{
+  "rules": [
+    "No Naming restrictions: use any string to create html elements.",
+    "Child >: This operator specifies a child element",
+    "Sibling +: specifies sibling elements",
+    "Multiplication *: This operator defines how many times an adjacent element should be outputted",
+    "Grouping (): groups elements together, as mathematical parenthesis",
+    "Climb up ^: add a sibling element one level up",
+    "#idName: The [#] notation allows specifying an id",
+    ".className: The [.] notation allows specifying a class",
+    "[attrName=attrValue]: This notation allows creating custom attributes",
+    "Item numbering $: The $ operator can number elements!",
+    "Multiplication *: This operator defines how many times an adjacent element should be outputted",
+    "{text}: curly brackets allow adding inner text to our elements.",
+    "HTML document !: generates a new document",
+    "lorem[number]:generates dummy text with specified number of words",
+    "c:generates a comment"
+  ],
+  "tutorial": [
+    {
+      "subject": "Naming",
+      "greeting": [
+        "Welcome to Emmet Practice!",
+        " A playground where you practice emmet abbreviations to write super fast HTML code!",
+        "In the next few exercises you will learn the basic rules of emmet abbreviations."
+      ],
+      "instructions": [
+        "Edit the text in the Emmet editor to match with the expected HTML code. Use the following rules."
+      ],
+      "info": [0],
+      "expectedHTML": "myTag"
+    },
+    {
+      "subject": "Child Elements",
+      "instructions": [
+        "Edit the text in the Emmet editor to match with the expected HTML code. Use the following rules."
+      ],
+      "info": [1],
+      "expectedHTML": "section>div>div>p"
+    },
+    {
+      "subject": "Children and Siblings a",
+      "instructions": [
+        "Edit the text in the Emmet editor to match with the expected HTML code. Use the following rules."
+      ],
+      "info": [1, 2],
+      "expectedHTML": "div>p+p"
+    },
+    {
+      "subject": "Children and Siblings b",
+      "instructions": ["Combine the next rules to create the result HTML tree"],
+      "info": [1, 3],
+      "expectedHTML": "div>ul>li*3"
+    },
+    {
+      "subject": "Sibling and Grouping Operators",
+      "instructions": ["Combine the next rules to create the result HTML tree"],
+      "info": [2, 4],
+      "expectedHTML": "div>(div>(img+p))*2"
+    },
+    {
+      "subject": "Create Sibling and Climb up",
+      "instructions": [
+        "Sometimes you would like to create a more complex document tree.",
+        "Use the climb up operator to add sibling after a complex container element."
+      ],
+      "info": [2, 5],
+      "expectedHTML": "div>img+p^div"
+    },
 
-  {
-    "subject": "Attributes - id",
-    "instructions": [
-      "As you saw in the last exercise, some attributes are auto-generated.",
-      "We can also use Attribute operators to define other attributes and their values as needed. ",
-      "A common attribute is the id."
-    ],
-    "info": ["#idNAme: The [#] notation allows specifying an id"],
-    "expectedHTML": "div#container>h2#container-header+p#container-info+footer#container-footer"
-  },
-  {
-    "subject": "Attributes - class",
-    "instructions": ["We can also use Attribute operators to define classes"],
-    "info": [".classNAme: The [.] notation allows specifying a class"],
-    "expectedHTML": "div.container>h2.container-header+p.container-info+footer.container-footer"
-  },
-  {
-    "subject": "Attributes - id and class",
-    "instructions": [
-      "Now lets combine our knowledge on specifying ids and class"
-    ],
-    "info": [
-      "#idNAme: The [#] notation allows specifying an id",
-      ".classNAme: The [.] notation allows specifying a classes"
-    ],
-    "expectedHTML": "div#app>header.app-header+section.app-main+footer.app-footer"
-  },
-  {
-    "subject": "Custom Attributes",
-    "instructions": [
-      "[attrName=attrValue]: This notation allows creating custom attributes"
-    ],
-    "info": [
-      "In addition, we can also create our own custom attributes using the bracket notation."
-    ],
-    "expectedHTML": "div.container>div.items[data-items=5]"
-  },
-  {
-    "subject": "Multiplication and Numbering",
-    "instructions": [
-      "Use the $ operator to number the amount of li elements.",
-      "Use the * operator to create several li elements."
-    ],
-    "info": [
-      "Item numbering $: The $ operator can number elements!",
-      "Multiplication *: This operator defines how many times an adjacent element should be outputted"
-    ],
-    "expectedHTML": "ul.shopping-list>li[data-amount=$]*5"
-  },
-  {
-    "subject": "Multiplication and Numbering",
-    "instructions": [
-      "Use the $ operator to place zeroes before a number.",
-      "Use the * operator to create several li elements."
-    ],
-    "info": [
-      "several $: add zeros before a number",
-      "Multiplication *: This operator defines how many times an adjacent element should be outputted"
-    ],
-    "expectedHTML": "ul.shopping-list>li[data-amount=$$$]*5"
-  },
-  {
-    "subject": "Inner Text",
-    "instructions": ["How about adding inner text inside elements?"],
-    "info": ["{text}: curly brackets allow adding inner text to our elements."],
-    "expectedHTML": "h1.main-heading>{Main Heading}>(h3.sub-heading>{Sub Heading $})*3"
-  },
-  {
-    "subject": "Auto generate HTML document",
-    "instructions": ["Use the ! sign to create the result HTML"],
-    "info": ["HTML document !: generates a new document"],
-    "expectedHTML": "!"
-  },
-  {
-    "subject": "Lorem Ipsum",
-    "instructions": [
-      "Often we'll need to test the appearance of HTML templates with real data, by using dummy text.",
-      " This is called the Lorem Ipsum text"
-    ],
-    "info": [
-      "lorem[number]:generates dummy text with specified number of words"
-    ],
-    "expectedHTML": "div.container>p>lorem4"
-  },
-  {
-    "subject": "Comments",
-    "instructions": ["Lets write some comments!"],
-    "info": ["c:generates a comment"],
-    "expectedHTML": "c"
-  },
-  {
-    "subject": "Final Exercise!",
-    "instructions": [
-      "Use all the previous roles to create the result HTML tree"
-    ],
-    "info": [],
-    "expectedHTML": "div.container>h1.greeting{You Did it}+p{Now you master Emmet abbreviations!}"
-  }
-]
+    {
+      "subject": "Attributes - id",
+      "instructions": [
+        "As you saw in the last exercise, some attributes are auto-generated.",
+        "We can also use Attribute operators to define other attributes and their values as needed. ",
+        "A common attribute is the id."
+      ],
+      "info": [6],
+      "expectedHTML": "div#container>h2#container-header+p#container-info+footer#container-footer"
+    },
+    {
+      "subject": "Attributes - class",
+      "instructions": ["We can also use Attribute operators to define classes"],
+      "info": [7],
+      "expectedHTML": "div.container>h2.container-header+p.container-info+footer.container-footer"
+    },
+    {
+      "subject": "Attributes - id and class",
+      "instructions": [
+        "Now lets combine our knowledge on specifying ids and class"
+      ],
+      "info": [6, 7],
+      "expectedHTML": "div#app>header.app-header+section.app-main+footer.app-footer"
+    },
+    {
+      "subject": "Custom Attributes",
+      "instructions": [
+        "In addition, we can also create our own custom attributes using the bracket notation."
+      ],
+      "info": [8],
+      "expectedHTML": "div.container>div.items[data-items=5]"
+    },
+    {
+      "subject": "Multiplication and Numbering",
+      "instructions": [
+        "Use the $ operator to number the amount of li elements.",
+        "Use the * operator to create several li elements."
+      ],
+      "info": [9, 10],
+      "expectedHTML": "ul.shopping-list>li[data-amount=$]*5"
+    },
+    {
+      "subject": "Multiplication and Numbering",
+      "instructions": [
+        "Use the $ operator to place zeroes before a number.",
+        "Use the * operator to create several li elements."
+      ],
+      "info": [9, 10],
+      "expectedHTML": "ul.shopping-list>li[data-amount=$$$]*5"
+    },
+    {
+      "subject": "Inner Text",
+      "instructions": ["How about adding inner text inside elements?"],
+      "info": [11],
+      "expectedHTML": "h1.main-heading>{Main Heading}>(h3.sub-heading>{Sub Heading $})*3"
+    },
+    {
+      "subject": "Auto generate HTML document",
+      "instructions": ["Use the ! sign to create the result HTML"],
+      "info": [12],
+      "expectedHTML": "!"
+    },
+    {
+      "subject": "Lorem Ipsum",
+      "instructions": [
+        "Often we'll need to test the appearance of HTML templates with real data, by using dummy text.",
+        " This is called the Lorem Ipsum text"
+      ],
+      "info": [13],
+      "expectedHTML": "div.container>p>lorem4"
+    },
+    {
+      "subject": "Comments",
+      "instructions": ["Lets write some comments!"],
+      "info": [14],
+      "expectedHTML": "c"
+    },
+    {
+      "subject": "Final Exercise!",
+      "instructions": [
+        "Which roles can help you to create the result HTML tree?"
+      ],
+      "info": [],
+      "expectedHTML": "div.container>h1.greeting{You Did it}+p{Now you master Emmet abbreviations!}"
+    }
+  ]
+}

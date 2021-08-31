@@ -5,7 +5,7 @@ import Editor from "./components/Editor/Editor";
 import Header from "./components/Header/Header";
 import Data from "./practiceData.json";
 import NextBtn from "./components/NextBtn/NextBtn";
-import CheatSheet from "./components/CheatSheet/CheatSheet";
+import CheatSheet from "./components/CheatSheet/CheatSheet.jsx";
 
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
@@ -22,7 +22,8 @@ const codeMirrorOptions = {
 };
 
 function App() {
-  const answersData = Data;
+  const answersData = Data.tutorial;
+  const rules = Data.rules;
   const numberOfLevels = answersData.length;
 
   const [localAnswers, setLocalAnswers] = useLocalStorage(numberOfLevels);
@@ -138,7 +139,9 @@ function App() {
                 <Instructions
                   subject={answersData[currentLevel].subject}
                   instructions={answersData[currentLevel].instructions}
-                  info={answersData[currentLevel].info}
+                  info={answersData[currentLevel].info.map(
+                    (item) => rules[item]
+                  )}
                   greeting={answersData[currentLevel].greeting}
                 />
                 <Editor
@@ -202,7 +205,7 @@ function App() {
             </div>
           </Route>
           <Route exact path="/cheatsheet">
-            <CheatSheet />
+            <CheatSheet rules={rules} />
             <p className={`credit`}>
               EmmetPractice is created by NataEn •
               <a href="https://github.com/NataEn" target="_blank">

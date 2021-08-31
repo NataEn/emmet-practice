@@ -17,6 +17,7 @@ const Theme = {
     ],
     size: {
       small: "14px",
+      medium: "16px",
     },
   },
   border: {
