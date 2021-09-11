@@ -1,8 +1,8 @@
 import "./App.css";
-import "animate.css/animate.css";
-import Instructions from "./components/Instructions";
+import Instructions from "./components/Instructions/Instructions";
 import Editor from "./components/Editor/Editor";
 import Header from "./components/Header/Header";
+import Credit from "./components/Credit/Credit";
 import Data from "./practiceData.json";
 import NextBtn from "./components/NextBtn/NextBtn";
 import CheatSheet from "./components/CheatSheet/CheatSheet.jsx";
@@ -182,41 +182,12 @@ function App() {
                   />
                 </Editor>{" "}
               </div>{" "}
-              <p className={`credit`}>
-                EmmetPractice is created by NataEn •
-                <a href="https://github.com/NataEn" target="_blank">
-                  GitHub
-                </a>{" "}
-                •
-                <a
-                  href="https://www.linkedin.com/in/natalieen/"
-                  target="_blank"
-                >
-                  LinkedIn
-                </a>
-                •
-                <a
-                  href="/cheatsheet"
-                  // target="_blank"
-                >
-                  Emmet Cheat-Sheet
-                </a>
-              </p>
+              <Credit cheatSheet={true} />
             </div>
           </Route>
           <Route exact path="/cheatsheet">
             <CheatSheet rules={rules} />
-            <p className={`credit`}>
-              EmmetPractice is created by NataEn •
-              <a href="https://github.com/NataEn" target="_blank">
-                GitHub
-              </a>{" "}
-              •
-              <a href="https://www.linkedin.com/in/natalieen/" target="_blank">
-                LinkedIn
-              </a>
-              •<a href="/">Emmet practice</a>
-            </p>
+            <Credit cheatSheet={false} />
           </Route>
         </Switch>
       </Router>
