@@ -1,26 +1,33 @@
 import React from "react";
+import { StyledCredit, StyledCreditLink } from "./StyledCredit";
 
 export default function Credit({ cheatSheet = true }) {
   return (
-    <p className={`credit`}>
+    <StyledCredit>
       EmmetPractice is created by NataEn •
-      <a href="https://github.com/NataEn" target="_blank" rel="noreferrer">
+      <StyledCreditLink
+        href="https://github.com/NataEn"
+        target="_blank"
+        rel="noreferrer"
+      >
         GitHub
-      </a>{" "}
+      </StyledCreditLink>{" "}
       •
-      <a
+      <StyledCreditLink
         href="https://www.linkedin.com/in/natalieen/"
         target="_blank"
         rel="noreferrer"
       >
         LinkedIn
-      </a>
+      </StyledCreditLink>
       •
       {cheatSheet ? (
-        <a href="/cheatsheet">Emmet Cheat-Sheet</a>
+        <StyledCreditLink href="/cheatsheet">
+          Emmet Cheat-Sheet
+        </StyledCreditLink>
       ) : (
-        <a href="/">Emmet practice</a>
+        <StyledCreditLink href="/">Emmet practice</StyledCreditLink>
       )}
-    </p>
+    </StyledCredit>
   );
 }
